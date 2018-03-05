@@ -1,4 +1,4 @@
-package textScreenEmu.Palettes;
+package textScreenEmu.palettes;
 
 public class PaletteFactory {
 
