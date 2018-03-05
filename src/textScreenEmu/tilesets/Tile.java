@@ -7,7 +7,7 @@ public class Tile {
 	public final int tileWidth;
 	public final int tileHeight;
 	
-	public Tile(int width, int height){
+	public Tile(int width, int height, int[] vals){
 		
 		try{
 			
@@ -17,6 +17,9 @@ public class Tile {
 			if(height <= 0 || height > 512)
 				throw new Exception("Height " + height + " out of range, must be between 1 and 512.");
 			
+			if(vals.length != width*height)
+				throw new Exception("Array length does not match width and height parameters, must be width * height.");
+			
 		}catch(Exception e){
 			System.out.println("ERROR: " + e);
 			e.printStackTrace();
@@ -25,6 +28,10 @@ public class Tile {
 		tileWidth = width;
 		tileHeight = height;
 		
-		values = new int[tileWidth * tileHeight];
+		values = vals.clone();
+	}
+	
+	public Tile(int width, int height){
+		this(width, height, new int[width*height]);
 	}
 }
