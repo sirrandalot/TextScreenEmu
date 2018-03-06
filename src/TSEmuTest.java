@@ -1,4 +1,4 @@
-import textScreenEmu.tilesets.Tile;
+import textScreenEmu.Tile;
 
 public class TSEmuTest {
 

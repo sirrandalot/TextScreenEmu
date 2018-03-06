@@ -1,4 +1,4 @@
-package textScreenEmu.tilesets;
+package textScreenEmu;
 
 public class TilesetFactory {
 
