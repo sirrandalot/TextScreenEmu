@@ -51,14 +51,14 @@ public class Tileset {
 		//Check if the input values are appropriate
 		try{
 			
-			if(tWidth <= 0 || tWidth > 512)
-				throw new Exception("Width " + tWidth + " out of range, must be between 1 and 512 inclusively.");
+			if(tWidth <= 0 || tWidth > 256)
+				throw new Exception("Width " + tWidth + " out of range, must be between 1 and 256 inclusively.");
 			
-			if(tHeight <= 0 || tHeight > 512)
-				throw new Exception("Height " + tHeight + " out of range, must be between 1 and 512 inclusively.");
+			if(tHeight <= 0 || tHeight > 256)
+				throw new Exception("Height " + tHeight + " out of range, must be between 1 and 256 inclusively.");
 			
-			if(numT <= 0 || numT > 1024)
-				throw new Exception("Number of tiles " + numT + " out of range, must be between 1 and 1024 inclusively.");
+			if(numT <= 0 || numT > 256)
+				throw new Exception("Number of tiles " + numT + " out of range, must be between 1 and 256 inclusively.");
 			
 			if(vals.length != tWidth*tHeight*numT)
 				throw new Exception("Array length does not match width, height and num parameters, must be tWidth * tHeight * numT.");
@@ -87,14 +87,14 @@ public class Tileset {
 		//Check if the input values are appropriate
 		try{
 			
-			if(tWidth <= 0 || tWidth > 512)
-				throw new Exception("Width " + tWidth + " out of range, must be between 1 and 512 inclusively.");
+			if(tWidth <= 0 || tWidth > 256)
+				throw new Exception("Width " + tWidth + " out of range, must be between 1 and 256 inclusively.");
 			
-			if(tHeight <= 0 || tHeight > 512)
-				throw new Exception("Height " + tHeight + " out of range, must be between 1 and 512 inclusively.");
+			if(tHeight <= 0 || tHeight > 256)
+				throw new Exception("Height " + tHeight + " out of range, must be between 1 and 256 inclusively.");
 			
-			if(tiles.length > 1024)
-				throw new Exception("Number of tiles " + tiles.length + " out of range, must be between 1 and 1024 inclusively.");
+			if(tiles.length > 256)
+				throw new Exception("Number of tiles " + tiles.length + " out of range, must be between 1 and 256 inclusively.");
 			
 			for(int i = 0; i < tiles.length; i++)
 				if(tiles[i].tileWidth != tWidth || tiles[i].tileHeight != tHeight)
