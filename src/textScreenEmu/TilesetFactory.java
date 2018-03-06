@@ -18,19 +18,55 @@ public class TilesetFactory {
 	public static Tileset createTileset(TilesetPredef t){
 		
 		switch(t){
-		case CLASSIC_9x14:
-			return makeTileset_Classic9x14();
+		case CLASSIC_8x16:
+			return makeTileset_Classic8x16();
 		default:
-			System.out.println("Enum value not recognized, returning classic 9x14 tileset...");
-			return makeTileset_Classic9x14();
+			System.out.println("Enum value not recognized, returning classic 8x16 tileset...");
+			return makeTileset_Classic8x16();
 		}
 	}
 	
 	
 	
-	private static Tileset makeTileset_Classic9x14(){
-		return new Tileset(9, 14, new Tile[]{
-				new Tile(9, 14)
+	private static Tileset makeTileset_Classic8x16(){
+		return new Tileset(8, 16, new Tile[]{
+				new Tile(8, 16),
+				new Tile(8, 16, new int[]{
+						0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0,
+						0, 1, 1, 1, 1, 1, 1, 0,
+						1, 0, 0, 0, 0, 0, 0, 1,
+						1, 0, 1, 0, 0, 1, 0, 1,
+						1, 0, 0, 0, 0, 0, 0, 1,
+						1, 0, 0, 0, 0, 0, 0, 1,
+						1, 0, 1, 1, 1, 1, 0, 1,
+						1, 0, 0, 1, 1, 0, 0, 1,
+						1, 0, 0, 0, 0, 0, 0, 1,
+						1, 0, 0, 0, 0, 0, 0, 1,
+						0, 1, 1, 1, 1, 1, 1, 0,
+						0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0
+				}),
+				new Tile(8, 16, new int[]{
+						0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0,
+						0, 1, 1, 1, 1, 1, 1, 0,
+						1, 1, 1, 1, 1, 1, 1, 1,
+						1, 1, 0, 1, 1, 0, 1, 1,
+						1, 1, 1, 1, 1, 1, 1, 1,
+						1, 1, 1, 1, 1, 1, 1, 1,
+						1, 1, 0, 0, 0, 0, 1, 1,
+						1, 1, 1, 0, 0, 1, 1, 1,
+						1, 1, 1, 1, 1, 1, 1, 1,
+						1, 1, 1, 1, 1, 1, 1, 1,
+						0, 1, 1, 1, 1, 1, 1, 0,
+						0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0
+				})
 		});
 	}
 }

@@ -1,5 +1,5 @@
 package textScreenEmu;
 
 public enum TilesetPredef {
-	CLASSIC_9x14
+	CLASSIC_8x16
 }
