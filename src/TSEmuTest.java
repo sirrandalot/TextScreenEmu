@@ -33,6 +33,11 @@ public class TSEmuTest {
 		
 		//s.drawTile(1, 1, 2);
 		
+		//s.drawPalette(false);
+		
+		
+		s.drawTileset(false);
+		
 		s.repaint();
 		
 	}

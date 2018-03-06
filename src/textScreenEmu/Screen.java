@@ -94,18 +94,86 @@ public class Screen extends JPanel{
 		
 		int offset = tile*tileset.tileWidth*tileset.tileHeight;
 		
+		int offX = x*tileset.tileWidth;
+		int offY = y*tileset.tileHeight;
+		
 		int c = 0;
 		
 		for(int j = 0; j < tileset.tileHeight; j++){
 			for(int i = 0; i < tileset.tileWidth; i++){
-				BI.setRGB(x*tileset.tileWidth + i, y*tileset.tileHeight + j, palette.colours[colourIndices[tileset.values[offset+c]]]);
+				BI.setRGB(offX + i, offY + j, palette.colours[colourIndices[tileset.values[offset+c]]]);
 				c++;
 			}
 		}
 		
 		
 		return true;
-	} 
+	}
+	
+	public void drawTileset(boolean flat){
+		
+		int c = 0;
+		
+		int x = 0;
+		int y = 0;
+		
+		while(c < tileset.numTiles){
+			
+			drawTile(x, y, c);
+			
+			x++;
+			
+			if(flat){
+				if(x == numTilesX){
+					x = 0;
+					y++;
+				}
+			}else{
+				if(x == 16){
+					x = 0;
+					y++;
+				}
+			}
+			
+			c++;
+		}
+	}
+	
+	public void drawPalette(boolean flat){
+		
+		int c = 0;
+		
+		int x = 0;
+		int y = 0;
+		
+		while(c < palette.getNumColours()){
+			
+			int offX = x*tileset.tileWidth;
+			int offY = y*tileset.tileHeight;
+			
+			for(int j = 0; j < tileset.tileHeight; j++){
+				for(int i = 0; i < tileset.tileWidth; i++){
+					BI.setRGB(offX + i, offY + j, palette.colours[c]);
+				}
+			}
+			
+			x++;
+			
+			if(flat){
+				if(x == numTilesX){
+					x = 0;
+					y++;
+				}
+			}else{
+				if(x == 16){
+					x = 0;
+					y++;
+				}
+			}
+			
+			c++;
+		}
+	}
 	
 	@Override
 	public void paintComponent(Graphics g){
