@@ -32,10 +32,10 @@ public class Tile {
 		try{
 			
 			if(width <= 0 || width > 512)
-				throw new Exception("Width " + width + " out of range, must be between 1 and 512.");
+				throw new Exception("Width " + width + " out of range, must be between 1 and 512 inclusively.");
 			
 			if(height <= 0 || height > 512)
-				throw new Exception("Height " + height + " out of range, must be between 1 and 512.");
+				throw new Exception("Height " + height + " out of range, must be between 1 and 512 inclusively.");
 			
 			if(vals.length != width*height)
 				throw new Exception("Array length does not match width and height parameters, must be width * height.");
