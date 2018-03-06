@@ -1,5 +1,10 @@
 package textScreenEmu;
 
+/**
+ * Class representing a single "tile" aka character.
+ * @author sirrandalot
+ *
+ */
 public class Tile {
 
 	/**

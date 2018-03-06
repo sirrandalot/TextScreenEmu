@@ -1,23 +1,54 @@
 package textScreenEmu;
 
+/**
+ * Class representing a set of Tiles.
+ * @author sirrandalot
+ *
+ */
 public class Tileset {
 
+	/**
+	 * The width of the tiles in this set.
+	 */
 	public final int tileWidth;
 	
+	/**
+	 * The height of the tiles in this set.
+	 */
 	public final int tileHeight;
 	
+	/**
+	 * The number of tiles in this set.
+	 */
 	public final int numTiles;
 	
+	/**
+	 * The values of the tiles in this set.
+	 */
 	protected int[] values;
 	
 	
+	/**
+	 * Constructor for Tileset using tile width, tile height and number of tiles, calls another constructor using a zero array for values.
+	 * @param tWidth The width of the tiles.
+	 * @param tHeight The height of the tiles.
+	 * @param numT The number of tiles.
+	 */
 	protected Tileset(int tWidth, int tHeight, int numT){
 		this(tWidth, tHeight, numT, new int[tWidth*tHeight*numT]);
 	}
 	
 	
+	/**
+	 * Constructor for Tileset using tile width, tile height, number of tiles and an array of values.
+	 * @param tWidth The width of the tiles.
+	 * @param tHeight The height of the tiles.
+	 * @param numT The number of tiles.
+	 * @param vals The values of the tiles.
+	 */
 	protected Tileset(int tWidth, int tHeight, int numT, int[] vals){
 		
+		//Check if the input values are appropriate
 		try{
 			
 			if(tWidth <= 0 || tWidth > 512)
@@ -45,8 +76,15 @@ public class Tileset {
 	}
 	
 	
+	/**
+	 * Constructor for Tileset using tile width and an array of Tiles.
+	 * @param tWidth The width of the tiles.
+	 * @param tHeight The height of the tiles.
+	 * @param tiles The array of Tiles.
+	 */
 	protected Tileset(int tWidth, int tHeight, Tile[] tiles){
 		
+		//Check if the input values are appropriate
 		try{
 			
 			if(tWidth <= 0 || tWidth > 512)
@@ -74,16 +112,19 @@ public class Tileset {
 		
 		values = new int[tileWidth*tileHeight*numTiles];
 		
-		for(int i = 0; i < tiles.length; i++){
-			for(int t = 0; t < tileWidth*tileHeight; t++){
-				values[i*tileWidth*tileHeight + t] = tiles[i].values[t];
-			}
-		}
+		for(int i = 0; i < tiles.length; i++)
+			setTile(i, tiles[i]);
 	}
 	
 	
+	/**
+	 * Sets the values for a tile at a specific index given an array for values.
+	 * @param index The tile index.
+	 * @param vals The values to use.
+	 */
 	public void setTile(int index, int[] vals){
 		
+		//Check if the input values are appropriate
 		try{
 			
 			if(index < 0 || index >= numTiles)
@@ -103,8 +144,15 @@ public class Tileset {
 		
 	}
 	
+	
+	/**
+	 * Sets the values for a tile at a specific index given a tile.
+	 * @param index The tile index.
+	 * @param tile The tile whose values to use.
+	 */
 	public void setTile(int index, Tile tile){
 		
+		//Check if the input values are appropriate
 		try{
 			
 			if(tile.tileWidth != tileWidth || tile.tileHeight != tileHeight)
