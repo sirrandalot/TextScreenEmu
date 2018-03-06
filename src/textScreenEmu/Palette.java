@@ -1,9 +1,22 @@
 package textScreenEmu;
 
+/**
+ * Class representing a colour palette, with colours represented as integers following the scheme 0x__RRGGBB.
+ * @author sirrandalot
+ *
+ */
 public class Palette {
 	
+	/**
+	 * The colour values in this palette.
+	 */
 	protected int[] colours;
 
+	
+	/**
+	 * Constructor for Palette using an array of ints.
+	 * @param cols The integer colour values.
+	 */
 	protected Palette(int[] cols){
 		
 		try{
@@ -20,10 +33,59 @@ public class Palette {
 	}
 	
 	
+	/**
+	 * Gets the number of colours in this palette.
+	 * @return The number of colours in this palette.
+	 */
 	public int getNumColours(){
 		return colours.length;
 	}
 	
+	
+	/**
+	 * Gets the colour at a specified index.
+	 * @param index The index.
+	 * @return The colour at the specified index.
+	 */
+	public int getColourAt(int index){
+		try{
+			
+			if(index < 0 || index > colours.length)
+				throw new Exception("Index " + index + " out of range, must be between 0 and colours array length.");
+			
+		}catch(Exception e){
+			System.out.println("ERROR: " + e);
+			e.printStackTrace();
+		}
+		
+		return colours[index];
+	}
+	
+	
+	/**
+	 * Sets the colour at the specified index.
+	 * @param index The index.
+	 * @param colour The colour to set.
+	 */
+	public void setColourAt(int index, int colour){
+		try{
+			
+			if(index < 0 || index > colours.length)
+				throw new Exception("Index " + index + " out of range, must be between 0 and colours array length.");
+			
+		}catch(Exception e){
+			System.out.println("ERROR: " + e);
+			e.printStackTrace();
+		}
+		
+		colours[index] = colour;
+	}
+	
+	
+	/**
+	 * Adds a given integer colour onto the end of the palette.
+	 * @param colour The colour to add.
+	 */
 	public void addColour(int colour){
 		
 		try{
