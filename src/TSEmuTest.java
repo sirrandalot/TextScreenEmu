@@ -1,11 +1,39 @@
-import textScreenEmu.Tile;
-import textScreenEmu.Tileset;
+import javax.swing.JFrame;
+
+import textScreenEmu.PaletteFactory;
+import textScreenEmu.PalettePredef;
+import textScreenEmu.Screen;
+import textScreenEmu.TilesetFactory;
+import textScreenEmu.TilesetPredef;
 
 public class TSEmuTest {
 
 	public static void main(String[] args){
 		
-		Tile t = new Tile(9, 14, new int[9*14]);
+		JFrame mainFrame = new JFrame();
+		
+		Screen s = new Screen(80, 25, 2, TilesetFactory.createTileset(TilesetPredef.CODEPAGE473_9x16), PaletteFactory.createPalette(PalettePredef.VGA_16));
+		
+		mainFrame.add(s);
+		
+		mainFrame.setResizable(false);
+		
+		mainFrame.pack();
+		
+		
+		
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		mainFrame.setVisible(true);
+		
+		
+		s.clearScreen();
+		
+		s.setForegroundColour(7);
+		
+		//s.drawTile(1, 1, 2);
+		
+		s.repaint();
 		
 	}
 }

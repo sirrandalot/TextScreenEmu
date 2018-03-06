@@ -13,6 +13,17 @@ public class PaletteFactory {
 	 * @return A Palette using the colours provided.
 	 */
 	public static Palette createPalette(int[] colours){
+		
+		try{
+			
+			if(colours.length < 2)
+				throw new Exception("Palette must contain at least 2 colours.");
+			
+		}catch(Exception e){
+			System.out.println("ERROR: " + e);
+			e.printStackTrace();
+		}
+		
 		return new Palette(colours);
 	}
 	
