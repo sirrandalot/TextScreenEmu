@@ -32,6 +32,8 @@ public class TilesetFactory {
 			return makeTileset_Codepage473_12x12();
 		case CODEPAGE473_16x16:
 			return makeTileset_Codepage473_16x16();
+		case SIMPLEMOOD_16x16:
+			return makeTileset_Simplemood_16x16();
 		default:
 			System.out.println("Enum value not recognized, returning classic 9x16 tileset...");
 			return makeTileset_Codepage473_9x16();
@@ -61,6 +63,11 @@ public class TilesetFactory {
 	
 	private static Tileset makeTileset_Codepage473_16x16(){
 		return getTilesetFromFile("cp437_16x16.png", 16, 16, 16, 16);
+	}
+	
+	
+	private static Tileset makeTileset_Simplemood_16x16(){
+		return getTilesetFromFile("sm_16x16.png", 16, 16, 16, 16);
 	}
 	
 	
