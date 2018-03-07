@@ -12,7 +12,7 @@ public class TSEmuTest {
 		
 		JFrame mainFrame = new JFrame();
 		
-		Screen s = new Screen(32, 16, 2, TilesetFactory.createTileset(TilesetPredef.CODEPAGE473_16x16), PaletteFactory.createPalette(PalettePredef.PHOSPHOR_8));
+		Screen s = new Screen(32, 16, 2, TilesetFactory.createTileset(TilesetPredef.ANTIQUE_8x16), PaletteFactory.createPalette(PalettePredef.PHOSPHOR_8));
 		
 		mainFrame.add(s);
 		
@@ -35,7 +35,7 @@ public class TSEmuTest {
 		
 		s.drawTileset(false);
 		
-		s.drawPalette(false);
+		//s.drawPalette(false);
 		
 		
 		

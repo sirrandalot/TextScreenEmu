@@ -44,6 +44,14 @@ public class TilesetFactory {
 			return makeTileset_Courier_8x16();
 		case RETRO_10x10:
 			return makeTileset_Retro_10x10();
+		case BASIC_8x8:
+			return makeTileset_Basic_8x8();
+		case COMICSANS_16x16:
+			return makeTileset_Comicsans_16x16();
+		case DOODLE_6x6:
+			return makeTileset_Doodle_6x6();
+		case DOODLE_16x16:
+			return makeTileset_Doodle_16x16();
 		default:
 			System.out.println("Enum value not recognized, returning classic 9x16 tileset...");
 			return makeTileset_Codepage473_9x16();
@@ -106,6 +114,26 @@ public class TilesetFactory {
 	}
 	
 	
+	private static Tileset makeTileset_Basic_8x8(){
+		return getTilesetFromFile("basic_8x8.png", 8, 8, 16, 16);
+	}
+	
+	
+	private static Tileset makeTileset_Comicsans_16x16(){
+		return getTilesetFromFile("comicsans_16x16.png", 16, 16, 16, 16);
+	}
+	
+	
+	private static Tileset makeTileset_Doodle_6x6(){
+		return getTilesetFromFile("doodle_6x6.png", 6, 6, 16, 16);
+	}
+	
+	
+	private static Tileset makeTileset_Doodle_16x16(){
+		return getTilesetFromFile("doodle_16x16.png", 16, 16, 16, 16);
+	}
+	
+	
 	private static Tileset getTilesetFromFile(String name, int tileWidth, int tileHeight, int numX, int numY){
 		BufferedImage img = null;
 		
@@ -146,7 +174,7 @@ public class TilesetFactory {
 						
 						int r = img.getRGB(tileWidth*tx + i, tileHeight*ty + j) & 0xFF;
 						
-						if(r > 0)
+						if(r > 50)
 							values[c] = 1;
 						
 						c++;
