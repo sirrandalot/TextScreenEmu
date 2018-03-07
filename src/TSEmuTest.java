@@ -12,7 +12,7 @@ public class TSEmuTest {
 		
 		JFrame mainFrame = new JFrame();
 		
-		Screen s = new Screen(80, 25, 2, TilesetFactory.createTileset(TilesetPredef.CODEPAGE473_9x16), PaletteFactory.createPalette(PalettePredef.VGA_16));
+		Screen s = new Screen(32, 8, 4, TilesetFactory.createTileset(TilesetPredef.CODEPAGE473_9x16), PaletteFactory.createPalette(PalettePredef.VGA_16));
 		
 		mainFrame.add(s);
 		
