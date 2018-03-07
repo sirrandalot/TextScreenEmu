@@ -34,6 +34,16 @@ public class TilesetFactory {
 			return makeTileset_Codepage473_16x16();
 		case SIMPLEMOOD_16x16:
 			return makeTileset_Simplemood_16x16();
+		case MEDIEVAL_8x16:
+			return makeTileset_Medieval_8x16();
+		case BROADWAY_8x16:
+			return makeTileset_Broadway_8x16();
+		case ANTIQUE_8x16:
+			return makeTileset_Antique_8x16();
+		case COURIER_8x16:
+			return makeTileset_Courier_8x16();
+		case RETRO_10x10:
+			return makeTileset_Retro_10x10();
 		default:
 			System.out.println("Enum value not recognized, returning classic 9x16 tileset...");
 			return makeTileset_Codepage473_9x16();
@@ -68,6 +78,31 @@ public class TilesetFactory {
 	
 	private static Tileset makeTileset_Simplemood_16x16(){
 		return getTilesetFromFile("sm_16x16.png", 16, 16, 16, 16);
+	}
+	
+	
+	private static Tileset makeTileset_Medieval_8x16(){
+		return getTilesetFromFile("medieval_8x16.bmp", 8, 16, 16, 16);
+	}
+	
+	
+	private static Tileset makeTileset_Broadway_8x16(){
+		return getTilesetFromFile("broadway_8x16.bmp", 8, 16, 16, 16);
+	}
+	
+	
+	private static Tileset makeTileset_Antique_8x16(){
+		return getTilesetFromFile("antique_8x16.bmp", 8, 16, 16, 16);
+	}
+	
+	
+	private static Tileset makeTileset_Courier_8x16(){
+		return getTilesetFromFile("courier_8x16.bmp", 8, 16, 16, 16);
+	}
+	
+	
+	private static Tileset makeTileset_Retro_10x10(){
+		return getTilesetFromFile("retro_10x10.png", 10, 10, 16, 16);
 	}
 	
 	
