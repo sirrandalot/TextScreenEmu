@@ -15,5 +15,12 @@ public enum PalettePredef {
 	VGA_16,
 	EGA_64,
 	C64_16,
-	APPLEII_16
+	APPLEII_16,
+	SPECTRUM_16,
+	CGA_16,
+	MSX_16,
+	C16_128,
+	GAMEBOY_4,
+	NES_64,
+	PHOSPHOR_8
 }

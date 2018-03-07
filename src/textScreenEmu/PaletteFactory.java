@@ -56,12 +56,366 @@ public class PaletteFactory {
 			return makePalette_C6416();
 		case APPLEII_16:
 			return makePalette_AppleII16();
+		case SPECTRUM_16:
+			return makePalette_Spectrum16();
+		case CGA_16:
+			return makePalette_CGA16();
+		case MSX_16:
+			return makePalette_MSX16();
+		case C16_128:
+			return makePalette_C16128();
+		case GAMEBOY_4:
+			return makePalette_Gameboy4();
+		case NES_64:
+			return makePalette_NES64();
+		case PHOSPHOR_8:
+			return makePalette_Phosphor8();
 		default:
 			System.out.println("Enum value not recognized, returning black and white palette...");
 			return makePalette_BlackAndWhite();
 			
 		}
 	}
+	
+	
+	/**
+	 * Creates an 8 colour Palette inspired by old monochrome displays.
+	 * @return A Palette with 8 colours inspired by old monochrome displays.
+	 */
+	private static Palette makePalette_Phosphor8(){
+		return new Palette(new int[]{
+				Integer.parseUnsignedInt("00101010", 16),
+				Integer.parseUnsignedInt("00FFB000", 16),
+				Integer.parseUnsignedInt("00FFCC00", 16),
+				Integer.parseUnsignedInt("0033FF00", 16),
+				Integer.parseUnsignedInt("0033FF33", 16),
+				Integer.parseUnsignedInt("0000FF33", 16),
+				Integer.parseUnsignedInt("0066FF66", 16),
+				Integer.parseUnsignedInt("0000FF66", 16)});
+	}
+	
+	
+	/**
+	 * Creates a 64 colour palette based on the NES colours.
+	 * @return A Palette based on NES colours.
+	 */
+	private static Palette makePalette_NES64(){
+		return new Palette(new int[]{
+				Integer.parseUnsignedInt("00727272", 16),
+				Integer.parseUnsignedInt("00001FF6", 16),
+				Integer.parseUnsignedInt("000017B1", 16),
+				Integer.parseUnsignedInt("00382BB1", 16),
+				Integer.parseUnsignedInt("00870078", 16),
+				Integer.parseUnsignedInt("009C001E", 16),
+				Integer.parseUnsignedInt("009C0000", 16),
+				Integer.parseUnsignedInt("007C1000", 16),
+				
+				Integer.parseUnsignedInt("00472B08", 16),
+				Integer.parseUnsignedInt("001C6E18", 16),
+				Integer.parseUnsignedInt("00185F14", 16),
+				Integer.parseUnsignedInt("00145012", 16),
+				Integer.parseUnsignedInt("000B3B4F", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				
+				Integer.parseUnsignedInt("00B5B5B5", 16),
+				Integer.parseUnsignedInt("000073F2", 16),
+				Integer.parseUnsignedInt("000055F2", 16),
+				Integer.parseUnsignedInt("005844F6", 16),
+				Integer.parseUnsignedInt("00CD00C2", 16),
+				Integer.parseUnsignedInt("00DB004E", 16),
+				Integer.parseUnsignedInt("00F2290B", 16),
+				Integer.parseUnsignedInt("00DD4F19", 16),
+				
+				Integer.parseUnsignedInt("00A37119", 16),
+				Integer.parseUnsignedInt("002CB025", 16),
+				Integer.parseUnsignedInt("00297F22", 16),
+				Integer.parseUnsignedInt("0026A045", 16),
+				Integer.parseUnsignedInt("001A7F7F", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				
+				Integer.parseUnsignedInt("00F7F7F7", 16),
+				Integer.parseUnsignedInt("003DB7F9", 16),
+				Integer.parseUnsignedInt("005D82F7", 16),
+				Integer.parseUnsignedInt("008B71F2", 16),
+				Integer.parseUnsignedInt("00F16FF3", 16),
+				Integer.parseUnsignedInt("00F24C8D", 16),
+				Integer.parseUnsignedInt("00F36B52", 16),
+				Integer.parseUnsignedInt("00F99444", 16),
+				
+				Integer.parseUnsignedInt("00F5AE26", 16),
+				Integer.parseUnsignedInt("00B7F63A", 16),
+				Integer.parseUnsignedInt("005DD357", 16),
+				Integer.parseUnsignedInt("0061F795", 16),
+				Integer.parseUnsignedInt("0032E7D4", 16),
+				Integer.parseUnsignedInt("006E6E6E", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				
+				Integer.parseUnsignedInt("00FCFCFC", 16),
+				Integer.parseUnsignedInt("009EE2FA", 16),
+				Integer.parseUnsignedInt("00AFB2F4", 16),
+				Integer.parseUnsignedInt("00D1B1F4", 16),
+				Integer.parseUnsignedInt("00F3B1F4", 16),
+				Integer.parseUnsignedInt("00F39AB8", 16),
+				Integer.parseUnsignedInt("00EDCAAA", 16),
+				Integer.parseUnsignedInt("00FBDBA3", 16),
+				
+				Integer.parseUnsignedInt("00F7D275", 16),
+				Integer.parseUnsignedInt("00D7F678", 16),
+				Integer.parseUnsignedInt("00B6F7B4", 16),
+				Integer.parseUnsignedInt("00B5F7D5", 16),
+				Integer.parseUnsignedInt("0035FDFC", 16),
+				Integer.parseUnsignedInt("00D3D3D3", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16)});
+	}
+	
+	
+	
+	/**
+	 * Creates a 4 colour Palette based on the Gameboy.
+	 * @return A Palette with 4 colours based on Gameboy.
+	 */
+	private static Palette makePalette_Gameboy4(){
+		return new Palette(new int[]{
+				Integer.parseUnsignedInt("00153314", 16), 
+				Integer.parseUnsignedInt("0030592F", 16),
+				Integer.parseUnsignedInt("0085A327", 16),
+				Integer.parseUnsignedInt("0095B42A", 16)});
+	}
+	
+	
+	/**
+	 * Creates a 128 colour palette based on the C-16 colours.
+	 * @return A Palette based on C-16 colours.
+	 */
+	private static Palette makePalette_C16128(){
+		return new Palette(new int[]{
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				
+				Integer.parseUnsignedInt("001F1F1F", 16),
+				Integer.parseUnsignedInt("00393939", 16),
+				Integer.parseUnsignedInt("00575757", 16),
+				Integer.parseUnsignedInt("00767676", 16),
+				Integer.parseUnsignedInt("00969696", 16),
+				Integer.parseUnsignedInt("00B8B8B8", 16),
+				Integer.parseUnsignedInt("00DBDBDB", 16),
+				Integer.parseUnsignedInt("00FFFFFF", 16),
+				
+				Integer.parseUnsignedInt("004E0808", 16),
+				Integer.parseUnsignedInt("006C2421", 16),
+				Integer.parseUnsignedInt("008C403C", 16),
+				Integer.parseUnsignedInt("00AE5E59", 16),
+				Integer.parseUnsignedInt("00D07D79", 16),
+				Integer.parseUnsignedInt("00F39E9A", 16),
+				Integer.parseUnsignedInt("00FDC1BC", 16),
+				Integer.parseUnsignedInt("00FEE5DF", 16),
+				
+				Integer.parseUnsignedInt("000B3237", 16),
+				Integer.parseUnsignedInt("00144F54", 16),
+				Integer.parseUnsignedInt("002A6E73", 16),
+				Integer.parseUnsignedInt("00458E94", 16),
+				Integer.parseUnsignedInt("0063AFB6", 16),
+				Integer.parseUnsignedInt("0082D2D8", 16),
+				Integer.parseUnsignedInt("00A3F6FC", 16),
+				Integer.parseUnsignedInt("00C4FFFF", 16),
+				
+				Integer.parseUnsignedInt("0041004C", 16),
+				Integer.parseUnsignedInt("005F1F6A", 16),
+				Integer.parseUnsignedInt("007E398A", 16),
+				Integer.parseUnsignedInt("009E57AB", 16),
+				Integer.parseUnsignedInt("00C076CE", 16),
+				Integer.parseUnsignedInt("00E397F1", 16),
+				Integer.parseUnsignedInt("00FBB8FC", 16),
+				Integer.parseUnsignedInt("00FDDBFD", 16),
+				
+				Integer.parseUnsignedInt("000E390B", 16),
+				Integer.parseUnsignedInt("001F5717", 16),
+				Integer.parseUnsignedInt("0037762D", 16),
+				Integer.parseUnsignedInt("00539748", 16),
+				Integer.parseUnsignedInt("0071B965", 16),
+				Integer.parseUnsignedInt("0091DC85", 16),
+				Integer.parseUnsignedInt("00B2FFA6", 16),
+				Integer.parseUnsignedInt("00D2FFC6", 16),
+				
+				Integer.parseUnsignedInt("001C1762", 16),
+				Integer.parseUnsignedInt("00372F81", 16),
+				Integer.parseUnsignedInt("00554BA1", 16),
+				Integer.parseUnsignedInt("007469C3", 16),
+				Integer.parseUnsignedInt("009488E6", 16),
+				Integer.parseUnsignedInt("00B6A9FC", 16),
+				Integer.parseUnsignedInt("00D9CBFD", 16),
+				Integer.parseUnsignedInt("00FEEEFE", 16),
+				
+				Integer.parseUnsignedInt("00202B08", 16),
+				Integer.parseUnsignedInt("003B4710", 16),
+				Integer.parseUnsignedInt("0059651E", 16),
+				Integer.parseUnsignedInt("00788435", 16),
+				Integer.parseUnsignedInt("0098A551", 16),
+				Integer.parseUnsignedInt("00BAC76F", 16),
+				Integer.parseUnsignedInt("00DDEB8F", 16),
+				Integer.parseUnsignedInt("00FFFEAF", 16),
+				
+				Integer.parseUnsignedInt("00421500", 16),
+				Integer.parseUnsignedInt("00602E10", 16),
+				Integer.parseUnsignedInt("00804A29", 16),
+				Integer.parseUnsignedInt("00A06944", 16),
+				Integer.parseUnsignedInt("00C28962", 16),
+				Integer.parseUnsignedInt("00E5AB82", 16),
+				Integer.parseUnsignedInt("00FECDA3", 16),
+				Integer.parseUnsignedInt("00FFF2C5", 16),
+				
+				Integer.parseUnsignedInt("00312008", 16),
+				Integer.parseUnsignedInt("004E3B0E", 16),
+				Integer.parseUnsignedInt("006D581F", 16),
+				Integer.parseUnsignedInt("008D7638", 16),
+				Integer.parseUnsignedInt("00AF9754", 16),
+				Integer.parseUnsignedInt("00D2B973", 16),
+				Integer.parseUnsignedInt("00F5DC93", 16),
+				Integer.parseUnsignedInt("00FFFEB5", 16),
+				
+				Integer.parseUnsignedInt("0012340B", 16),
+				Integer.parseUnsignedInt("00295012", 16),
+				Integer.parseUnsignedInt("00456F22", 16),
+				Integer.parseUnsignedInt("00638F3B", 16),
+				Integer.parseUnsignedInt("0083B157", 16),
+				Integer.parseUnsignedInt("00A4D475", 16),
+				Integer.parseUnsignedInt("00C6F895", 16),
+				Integer.parseUnsignedInt("00E7FEB5", 16),
+				
+				Integer.parseUnsignedInt("0052001E", 16),
+				Integer.parseUnsignedInt("00711D39", 16),
+				Integer.parseUnsignedInt("00903956", 16),
+				Integer.parseUnsignedInt("00B15775", 16),
+				Integer.parseUnsignedInt("00D47595", 16),
+				Integer.parseUnsignedInt("00F896B7", 16),
+				Integer.parseUnsignedInt("00FCB9DA", 16),
+				Integer.parseUnsignedInt("00FDDCFD", 16),
+				
+				Integer.parseUnsignedInt("000E3920", 16),
+				Integer.parseUnsignedInt("0015573B", 16),
+				Integer.parseUnsignedInt("002A7659", 16),
+				Integer.parseUnsignedInt("00449678", 16),
+				Integer.parseUnsignedInt("0061B898", 16),
+				Integer.parseUnsignedInt("007FDABA", 16),
+				Integer.parseUnsignedInt("00A0FFDD", 16),
+				Integer.parseUnsignedInt("00BFFFFF", 16),
+				
+				Integer.parseUnsignedInt("0000294C", 16),
+				Integer.parseUnsignedInt("0018456B", 16),
+				Integer.parseUnsignedInt("0032638B", 16),
+				Integer.parseUnsignedInt("004E83AD", 16),
+				Integer.parseUnsignedInt("006CA4CF", 16),
+				Integer.parseUnsignedInt("008DC7F3", 16),
+				Integer.parseUnsignedInt("00AFE8FE", 16),
+				Integer.parseUnsignedInt("00D1FFFF", 16),
+				
+				Integer.parseUnsignedInt("002F0E5C", 16),
+				Integer.parseUnsignedInt("004C257B", 16),
+				Integer.parseUnsignedInt("006A419B", 16),
+				Integer.parseUnsignedInt("008B5EBC", 16),
+				Integer.parseUnsignedInt("00AC7EDF", 16),
+				Integer.parseUnsignedInt("00CF9EFB", 16),
+				Integer.parseUnsignedInt("00F2BFFC", 16),
+				Integer.parseUnsignedInt("00FDE2FE", 16),
+				
+				Integer.parseUnsignedInt("000E3C0E", 16),
+				Integer.parseUnsignedInt("00195925", 16),
+				Integer.parseUnsignedInt("002E7940", 16),
+				Integer.parseUnsignedInt("0057995D", 16),
+				Integer.parseUnsignedInt("0065BB7C", 16),
+				Integer.parseUnsignedInt("0085DF9D", 16),
+				Integer.parseUnsignedInt("00A5FFBF", 16),
+				Integer.parseUnsignedInt("00C5FFE0", 16)});
+	}
+	
+	
+	/**
+	 * Creates a 16 colour palette based on the TI MSX colours.
+	 * @return A Palette based on TI MSX colours.
+	 */
+	private static Palette makePalette_MSX16(){
+		return new Palette(new int[]{
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("0045B04A", 16),
+				Integer.parseUnsignedInt("0072CB79", 16),
+				Integer.parseUnsignedInt("004C51D8", 16),
+				Integer.parseUnsignedInt("007370EB", 16),
+				Integer.parseUnsignedInt("00AF534A", 16),
+				Integer.parseUnsignedInt("0064D8EC", 16),
+				Integer.parseUnsignedInt("00D35951", 16),
+				Integer.parseUnsignedInt("00FB7D74", 16),
+				Integer.parseUnsignedInt("00C7BB5D", 16),
+				Integer.parseUnsignedInt("00DAC982", 16),
+				Integer.parseUnsignedInt("003F9942", 16),
+				Integer.parseUnsignedInt("00AC5DAA", 16),
+				Integer.parseUnsignedInt("00C6C6C6", 16),
+				Integer.parseUnsignedInt("00FFFFFF", 16)});
+	}
+	
+	
+	
+	/**
+	 * Creates a 16 colour palette based on the IBM CGA colours.
+	 * @return A Palette based on IBM CGA colours.
+	 */
+	private static Palette makePalette_CGA16(){
+		return new Palette(new int[]{
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("000021AA", 16),
+				Integer.parseUnsignedInt("0000AD2E", 16),
+				Integer.parseUnsignedInt("0000B0B0", 16),
+				Integer.parseUnsignedInt("00B91411", 16),
+				Integer.parseUnsignedInt("00B527AB", 16),
+				Integer.parseUnsignedInt("00B85F1E", 16),
+				Integer.parseUnsignedInt("00B1B1B1", 16),
+				Integer.parseUnsignedInt("005F5F5F", 16),
+				Integer.parseUnsignedInt("005269F6", 16),
+				Integer.parseUnsignedInt("004FFA71", 16),
+				Integer.parseUnsignedInt("003EFEFE", 16),
+				Integer.parseUnsignedInt("00FF6261", 16),
+				Integer.parseUnsignedInt("00FF6CF8", 16),
+				Integer.parseUnsignedInt("00FFFB73", 16),
+				Integer.parseUnsignedInt("00FFFFFF", 16)});
+	}
+	
+	
+	/**
+	 * Creates a 16 colour palette based on the ZX Spectrum colours.
+	 * @return A Palette based on ZX Spectrum colours.
+	 */
+	private static Palette makePalette_Spectrum16(){
+		return new Palette(new int[]{
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("000025BE", 16),
+				Integer.parseUnsignedInt("00CE1613", 16),
+				Integer.parseUnsignedInt("00CA2BBF", 16),
+				Integer.parseUnsignedInt("0000C133", 16),
+				Integer.parseUnsignedInt("0000C4C5", 16),
+				Integer.parseUnsignedInt("00C9C237", 16),
+				Integer.parseUnsignedInt("00C5C5C5", 16),
+				Integer.parseUnsignedInt("00000000", 16),
+				Integer.parseUnsignedInt("000030F5", 16),
+				Integer.parseUnsignedInt("00FF1D19", 16),
+				Integer.parseUnsignedInt("00FF38F6", 16),
+				Integer.parseUnsignedInt("0000F942", 16),
+				Integer.parseUnsignedInt("0000FDFE", 16),
+				Integer.parseUnsignedInt("00FFFA47", 16),
+				Integer.parseUnsignedInt("00FFFFFF", 16)});
+	}
+	
 	
 	/**
 	 * Creates a 16 colour palette based on the Apple II colours.
