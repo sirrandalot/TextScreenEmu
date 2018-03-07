@@ -1,4 +1,11 @@
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import textScreenEmu.PaletteFactory;
 import textScreenEmu.PalettePredef;
@@ -40,5 +47,29 @@ public class TSEmuTest {
 		
 		s.repaint();
 		
+		getDataFromImage("cp437_9x16", 9, 16);
+		getDataFromImage("cp437_8x8", 8, 8);
+		getDataFromImage("cp437_10x10", 10, 10);
+		getDataFromImage("cp437_12x12", 12, 12);
+		getDataFromImage("cp437_16x16", 16, 16);
+		
+	}
+	
+	public static BufferedImage getDataFromImage(String name, int x, int y){
+		BufferedImage buf = null;
+		
+		try{
+			buf = ImageIO.read(new File("C:/Users/puric/Desktop/PictureStuff/Tilesets/" + name + ".png"));
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
+		return buf;
 	}
 }
