@@ -69,7 +69,7 @@ public class TilesetFactory {
 		
 		try{
 			
-			img = ImageIO.read(TilesetFactory.class.getResource("./images/" + name));
+			img = ImageIO.read(TilesetFactory.class.getResource("/textScreenEmu/images/" + name));
 			
 		}catch(Exception e){
 			e.printStackTrace();
