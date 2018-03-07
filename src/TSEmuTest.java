@@ -22,7 +22,7 @@ public class TSEmuTest {
 		
 		JFrame mainFrame = new JFrame();
 		
-		Screen s = new Screen(32, 16, 2, TilesetFactory.createTileset(TilesetPredef.CODEPAGE473_8x8), PaletteFactory.createPalette(PalettePredef.VGA_16));
+		Screen s = new Screen(32, 16, 2, TilesetFactory.createTileset(TilesetPredef.CODEPAGE473_9x16), PaletteFactory.createPalette(PalettePredef.VGA_16));
 		
 		mainFrame.add(s);
 		
@@ -39,7 +39,7 @@ public class TSEmuTest {
 		
 		s.clearScreen();
 		
-		s.setForegroundColour(7);
+		s.setForegroundColour(9);
 		
 		//s.drawTile(1, 1, 2);
 		
@@ -58,56 +58,56 @@ public class TSEmuTest {
 		
 	}
 	
-	public static BufferedImage getDataFromImage(String name, int x, int y){
-		BufferedImage buf = null;
-		
-		try{
-			buf = ImageIO.read(new File("C:/Users/puric/Desktop/PictureStuff/Tilesets/" + name + ".png"));
-		}catch(IOException e){
-			e.printStackTrace();
-		}
-		
-		try {
-			PrintWriter writer = new PrintWriter("C:/Users/puric/Desktop/PictureStuff/Tilesets/" + name + ".txt", "UTF-8");
-			
-			for(int ty = 0; ty < 16; ty++){
-				for(int tx = 0; tx < 16; tx++){
-					writer.print("new Tile(" + x + ", " + y + ", " + "new int[]{\n");
-					
-					for(int j = 0; j < y; j++){
-						for(int i = 0; i < x; i++){
-							
-							int r = buf.getRGB(x*tx + i, y*ty + j) & 0xFF;
-							
-							if(r > 0)
-								writer.print(1);
-							else
-								writer.print(0);
-							
-							if(i != x-1 || j != y-1)
-								writer.print(", ");
-						}
-						writer.print("\n");
-					}
-					
-					
-					writer.print("})");
-					
-					if(ty != 15 || tx != 15)
-						writer.print(",\n");
-						
-				}
-			}
-			
-			writer.close();
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		
-		
-		
-		
-		return buf;
-	}
+//	public static BufferedImage getDataFromImage(String name, int x, int y){
+//		BufferedImage buf = null;
+//		
+//		try{
+//			buf = ImageIO.read(new File("C:/Users/puric/Desktop/PictureStuff/Tilesets/" + name + ".png"));
+//		}catch(IOException e){
+//			e.printStackTrace();
+//		}
+//		
+//		try {
+//			PrintWriter writer = new PrintWriter("C:/Users/puric/Desktop/PictureStuff/Tilesets/" + name + ".txt", "UTF-8");
+//			
+//			for(int ty = 0; ty < 16; ty++){
+//				for(int tx = 0; tx < 16; tx++){
+//					writer.print("new Tile(" + x + ", " + y + ", " + "new int[]{\n");
+//					
+//					for(int j = 0; j < y; j++){
+//						for(int i = 0; i < x; i++){
+//							
+//							int r = buf.getRGB(x*tx + i, y*ty + j) & 0xFF;
+//							
+//							if(r > 0)
+//								writer.print(1);
+//							else
+//								writer.print(0);
+//							
+//							if(i != x-1 || j != y-1)
+//								writer.print(", ");
+//						}
+//						writer.print("\n");
+//					}
+//					
+//					
+//					writer.print("})");
+//					
+//					if(ty != 15 || tx != 15)
+//						writer.print(",\n");
+//						
+//				}
+//			}
+//			
+//			writer.close();
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		
+//		
+//		
+//		return buf;
+//	}
 }
