@@ -53,16 +53,16 @@ public class TilesetFactory {
 	public static Tileset createTileset(TilesetPredef t){
 		
 		switch(t){
-		case CODEPAGE473_9x16:
-			return makeTileset_Codepage473_9x16();
-		case CODEPAGE473_8x8:
-			return makeTileset_Codepage473_8x8();
-		case CODEPAGE473_10x10:
-			return makeTileset_Codepage473_10x10();
-		case CODEPAGE473_12x12:
-			return makeTileset_Codepage473_12x12();
-		case CODEPAGE473_16x16:
-			return makeTileset_Codepage473_16x16();
+		case CODEPAGE437_9x16:
+			return makeTileset_Codepage437_9x16();
+		case CODEPAGE437_8x8:
+			return makeTileset_Codepage437_8x8();
+		case CODEPAGE437_10x10:
+			return makeTileset_Codepage437_10x10();
+		case CODEPAGE437_12x12:
+			return makeTileset_Codepage437_12x12();
+		case CODEPAGE437_16x16:
+			return makeTileset_Codepage437_16x16();
 		case SIMPLEMOOD_16x16:
 			return makeTileset_Simplemood_16x16();
 		case MEDIEVAL_8x16:
@@ -84,48 +84,48 @@ public class TilesetFactory {
 		case DOODLE_16x16:
 			return makeTileset_Doodle_16x16();
 		default:
-			System.out.println("Enum value not recognized, returning classic 9x16 tileset...");
-			return makeTileset_Codepage473_9x16();
+			System.out.println("Enum value not recognized, returning code page 437 9x16 tileset...");
+			return makeTileset_Codepage437_9x16();
 		}
 	}
 	
 	/**
-	 * Creates a "CodePage 473" 9x16 Tileset.
-	 * @return A "CodePage 473" 9x16 Tileset.
+	 * Creates a "CodePage 437" 9x16 Tileset.
+	 * @return A "CodePage 437" 9x16 Tileset.
 	 */
-	private static Tileset makeTileset_Codepage473_9x16(){
+	private static Tileset makeTileset_Codepage437_9x16(){
 		return getTilesetFromFile("cp437_9x16.png", 9, 16, 16, 16);
 	}
 	
 	/**
-	 * Creates a "CodePage 473" 8x8 Tileset.
-	 * @return A "CodePage 473" 8x8 Tileset.
+	 * Creates a "CodePage 437" 8x8 Tileset.
+	 * @return A "CodePage 437" 8x8 Tileset.
 	 */
-	private static Tileset makeTileset_Codepage473_8x8(){
+	private static Tileset makeTileset_Codepage437_8x8(){
 		return getTilesetFromFile("cp437_8x8.png", 8, 8, 16, 16);
 	}
 	
 	/**
-	 * Creates a "CodePage 473" 10x10 Tileset.
-	 * @return A "CodePage 473" 10x10 Tileset.
+	 * Creates a "CodePage 437" 10x10 Tileset.
+	 * @return A "CodePage 437" 10x10 Tileset.
 	 */
-	private static Tileset makeTileset_Codepage473_10x10(){
+	private static Tileset makeTileset_Codepage437_10x10(){
 		return getTilesetFromFile("cp437_10x10.png", 10, 10, 16, 16);
 	}
 	
 	/**
-	 * Creates a "CodePage 473" 12x12 Tileset.
-	 * @return A "CodePage 473" 12x12 Tileset.
+	 * Creates a "CodePage 437" 12x12 Tileset.
+	 * @return A "CodePage 437" 12x12 Tileset.
 	 */
-	private static Tileset makeTileset_Codepage473_12x12(){
+	private static Tileset makeTileset_Codepage437_12x12(){
 		return getTilesetFromFile("cp437_12x12.png", 12, 12, 16, 16);
 	}
 	
 	/**
-	 * Creates a "CodePage 473" 16x16 Tileset.
-	 * @return A "CodePage 473" 16x16 Tileset.
+	 * Creates a "CodePage 437" 16x16 Tileset.
+	 * @return A "CodePage 437" 16x16 Tileset.
 	 */
-	private static Tileset makeTileset_Codepage473_16x16(){
+	private static Tileset makeTileset_Codepage437_16x16(){
 		return getTilesetFromFile("cp437_16x16.png", 16, 16, 16, 16);
 	}
 	
