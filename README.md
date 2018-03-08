@@ -8,9 +8,13 @@ Several tilesets and palettes are provided but you can make your own using the f
 [Check out the wiki](https://github.com/sirrandalot/TextScreenEmu/wiki) for more information, or [download the jar](https://github.com/sirrandalot/TextScreenEmu/tree/master/jars) and get started!  
   
 ## Example Tileset
-
+[See all pre-defined tilesets!](https://github.com/sirrandalot/TextScreenEmu/wiki/Pre-Defined-Tilesets)  
+![CODEPAGE437_10x10](https://i.imgur.com/s83FMdC.png)
 
 ## Example Palette
-
+[See all pre-defined palettes!](https://github.com/sirrandalot/TextScreenEmu/wiki/Pre-Defined-Palettes)  
+![NES_64](https://i.imgur.com/js4ZfO1.png)
 
 ## Example Image
+[Check out some example code!](https://github.com/sirrandalot/TextScreenEmu/wiki/Example-Code)  
+![Example1](https://i.imgur.com/Bpuv6qZ.png)
