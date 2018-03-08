@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import textScreenEmu.PaletteFactory;
@@ -12,7 +16,12 @@ public class TSEmuTest {
 		
 		JFrame mainFrame = new JFrame();
 		
-		Screen s = new Screen(32, 16, 2, TilesetFactory.createTileset(TilesetPredef.CODEPAGE473_12x12), PaletteFactory.createPalette(PalettePredef.PHOSPHOR_8));
+		Screen s;
+		
+		TilesetPredef tsPredef = TilesetPredef.CODEPAGE473_16x16;
+		PalettePredef plPredef = PalettePredef.PHOSPHOR_8;
+		
+		s = new Screen(32, 16, 2, TilesetFactory.createTileset(tsPredef), PaletteFactory.createPalette(plPredef));
 		
 		mainFrame.add(s);
 		
@@ -35,12 +44,25 @@ public class TSEmuTest {
 		
 		s.drawTileset(false);
 		
-		s.drawPalette(false);
+		//s.drawPalette(false);
 		
 		
 		
 		
 		s.repaint();
+		
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e1) {
+//			e1.printStackTrace();
+//		}
+//		
+//		File outputfile = new File("Palette_" + plPredef.toString() + ".png");
+//        try {
+//			ImageIO.write(s.BIScaled, "png", outputfile);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 		
 	}
