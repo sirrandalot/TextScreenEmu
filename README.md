@@ -5,7 +5,7 @@ It provides a main `Screen` onto which characters from a `Tileset` can be drawn.
   
 Several tilesets and palettes are provided but you can make your own using the factory classes.  
   
-Check out the wiki for more information!  
+Check out the wiki for more information, or download the jar and get started!  
   
 ## Example Tileset
 
