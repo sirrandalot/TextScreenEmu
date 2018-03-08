@@ -6,6 +6,8 @@ It provides a main `Screen` onto which characters from a `Tileset` can be drawn.
 Several tilesets and palettes are provided but you can make your own using the factory classes.  
   
 [Check out the wiki](https://github.com/sirrandalot/TextScreenEmu/wiki) for more information, or [download the jar](https://github.com/sirrandalot/TextScreenEmu/tree/master/jars) and get started!  
+
+If anyone uses this to make something cool, I'd love to see it and I could even link to it from here!
   
 ## Example Tileset
 [See all pre-defined tilesets!](https://github.com/sirrandalot/TextScreenEmu/wiki/Pre-Defined-Tilesets)  
