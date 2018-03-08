@@ -8,23 +8,62 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+/**
+ * Class which emulates a screen by extending a JPanel and drawing to a scaled BufferedImage.
+ * @author sirrandalot
+ *
+ */
 public class Screen extends JPanel{
 	
+	/**
+	 * The image to which everything will be drawn.
+	 */
 	private BufferedImage BI;
+	
+	/**
+	 * The image which will be drawn to the panel.
+	 */
 	private BufferedImage BIScaled;
 	
+	/**
+	 * How much to scale the base image.
+	 */
 	public final int imageScale;
 	
+	/**
+	 * The horizontal number of tiles in the screen.
+	 */
 	public final int numTilesX;
+	
+	/**
+	 * The vertical number of tiles in the screen.
+	 */
 	public final int numTilesY;
 	
+	/**
+	 * The indices representing the background and foreground colours.
+	 */
 	private int[] colourIndices = {0, 1};
 	
+	/**
+	 * the Tileset to use.
+	 */
 	public Tileset tileset;
 	
+	/**
+	 * The colour palette to use.
+	 */
 	public Palette palette;
 	
 	
+	/**
+	 * Constructor for Screen.
+	 * @param numTx The horizontal number of tiles.
+	 * @param numTy The vertical number of tiles.
+	 * @param scale The scale of the screen.
+	 * @param t The Tileset to use.
+	 * @param p The Palette to use.
+	 */
 	public Screen(int numTx, int numTy, int scale, Tileset t, Palette p){
 		
 		try{
@@ -56,6 +95,10 @@ public class Screen extends JPanel{
 		this.setPreferredSize(new Dimension(numTilesX*tileset.tileWidth*imageScale, numTilesY*tileset.tileHeight*imageScale));
 	}
 	
+	
+	/**
+	 * Colours the entire screen with the current background colour.
+	 */
 	public void clearScreen(){
 
 		for(int i = 0; i < BI.getWidth(); i++){
@@ -65,6 +108,12 @@ public class Screen extends JPanel{
 		}
 	}
 	
+	
+	/**
+	 * Sets the foreground colour.
+	 * @param index The new colour index.
+	 * @return True if the colour was set successfully, false otherwise.
+	 */
 	public boolean setForegroundColour(int index){
 		if(index >= 0 && index < palette.getNumColours()){
 			colourIndices[1] = index;
@@ -74,6 +123,12 @@ public class Screen extends JPanel{
 		return false;
 	}
 	
+	
+	/**
+	 * Sets the backgroundground colour.
+	 * @param index The new colour index.
+	 * @return True if the colour was set successfully, false otherwise.
+	 */
 	public boolean setBackgroundColour(int index){
 		if(index >= 0 && index < palette.getNumColours()){
 			colourIndices[0] = index;
@@ -83,10 +138,25 @@ public class Screen extends JPanel{
 		return false;
 	}
 	
+	
+	/**
+	 * Sets both the foreground and background colour.
+	 * @param indexBackground The new background colour index.
+	 * @param indexForeground The new foreground colour index.
+	 * @return True if the colour was set successfully, false otherwise (for both background and foreground).
+	 */
 	public boolean[] setColour(int indexBackground, int indexForeground){
 		return new boolean[]{setBackgroundColour(indexBackground), setForegroundColour(indexForeground)};
 	}
 	
+	
+	/**
+	 * Draws a specified tile at a tile position.
+	 * @param x The x position.
+	 * @param y The y position.
+	 * @param tile The index of the tile to draw.
+	 * @return True if the tile was drawn, false if it was out of bounds.
+	 */
 	public boolean drawTile(int x, int y, int tile){
 		if(x < 0 || x > numTilesX-1 || y < 0 || y > numTilesY-1 || tile < 0 || tile > tileset.numTiles-1){
 			return false;
@@ -110,6 +180,11 @@ public class Screen extends JPanel{
 		return true;
 	}
 	
+	
+	/**
+	 * Draws the current Tileset.
+	 * @param flat If true, wraps at screen width, otherwise wraps at 16.
+	 */
 	public void drawTileset(boolean flat){
 		
 		int c = 0;
@@ -139,6 +214,11 @@ public class Screen extends JPanel{
 		}
 	}
 	
+	
+	/**
+	 * Draws the current palette.
+	 * @param flat If true, wraps at screen width, otherwise wraps at 16.
+	 */
 	public void drawPalette(boolean flat){
 		
 		int c = 0;
@@ -175,6 +255,10 @@ public class Screen extends JPanel{
 		}
 	}
 	
+	
+	/**
+	 * Scales the BufferedImage and then draws it to the panel.
+	 */
 	@Override
 	public void paintComponent(Graphics g){
 		Graphics2D g2d = BIScaled.createGraphics();

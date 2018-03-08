@@ -1,5 +1,10 @@
 package textScreenEmu;
 
+/**
+ * Enum of pre-defined Tilesets
+ * @author sirrandalot
+ *
+ */
 public enum TilesetPredef {
 	CODEPAGE473_9x16,
 	CODEPAGE473_8x8,

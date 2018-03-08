@@ -88,10 +88,10 @@ public class PaletteFactory {
 				Integer.parseUnsignedInt("00FFB000", 16),
 				Integer.parseUnsignedInt("00FFCC00", 16),
 				Integer.parseUnsignedInt("0033FF00", 16),
-				Integer.parseUnsignedInt("0033FF33", 16),
-				Integer.parseUnsignedInt("0000FF33", 16),
 				Integer.parseUnsignedInt("0066FF66", 16),
-				Integer.parseUnsignedInt("0000FF66", 16)});
+				Integer.parseUnsignedInt("0000FF66", 16),
+				Integer.parseUnsignedInt("0000DDFF", 16),
+				Integer.parseUnsignedInt("000090FF", 16),});
 	}
 	
 	
