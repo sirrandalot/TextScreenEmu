@@ -223,7 +223,7 @@ public class TilesetFactory {
 		
 		try{
 			
-			img = ImageIO.read(TilesetFactory.class.getResource("/textScreenEmu/images/" + name));
+			img = ImageIO.read(TilesetFactory.class.getResource("/textScreenEmu/images/tilesets/" + name));
 			
 			return getTilesetFromImage(img, tileWidth, tileHeight, numX, numY);
 			
