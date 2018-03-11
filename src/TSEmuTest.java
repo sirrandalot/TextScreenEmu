@@ -50,6 +50,12 @@ public class TSEmuTest {
 			s.drawRandomTile(i, i, i*((long)(Math.random()*5000)));
 		}
 		
+		s.drawTile(10,  2, '+');
+		
+		
+		s.setForegroundColour(3);
+		
+		s.drawString(2,  5,  "Testing sTrIng!!?? Testing out this new draw string feature man this is pretty cool but I have to keep writing in order to test it properly.", true, true);
 		
 		
 		s.repaint();

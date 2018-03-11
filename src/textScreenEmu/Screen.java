@@ -207,6 +207,69 @@ public class Screen extends JPanel{
 	
 	
 	/**
+	 * Draws a String to the screen starting at a given position, assuming the tileset uses typical ASCII values.
+	 * @param x The starting x position.
+	 * @param y The starting y position.
+	 * @param s The string to draw.
+	 * @param wrapX If true, wraps the string horizontally.
+	 * @param wrapOnSpace If true, tries to wrap the string at spaces.
+	 */
+	public void drawString(int x, int y, String s, boolean wrapX, boolean wrapOnSpace){
+
+		int xp = x;
+		int yp = y;
+		
+		if(wrapX && x < 0)
+			xp = 0;
+		
+		
+		for(int c = 0; c < s.length(); c++){
+			if(wrapX && xp >= numTilesX){
+				yp++;
+				xp = 0;
+				
+				if(s.charAt(c) == ' ') continue;
+			}
+			
+			if(!wrapX || !wrapOnSpace || s.charAt(c) != ' '){
+				drawTile(xp, yp, s.charAt(c));
+			}else{
+				if(noMoreSpaces(s, c, c-xp+numTilesX)){
+					yp++;
+					xp = 0;
+					continue;
+				}
+			}
+			
+			
+			xp++;
+		}
+		
+	}
+	
+	
+	/**
+	 * Checks if there are any more spaces on the current line of text (if the string extends past the end of the line).
+	 * @param s The string.
+	 * @param startSpace The index of the current space.
+	 * @param end The index of the end of the line.
+	 * @return True if there are no more spaces on teh line, false otherwise or if the string doesn't extend past the end of the line anyways.
+	 */
+	private boolean noMoreSpaces(String s, int startSpace, int end){
+		
+		if(s.length() < end)
+			return false;
+		
+		for(int i = startSpace+1; i < end; i++){
+			if(s.charAt(i) == ' ')
+				return false;
+		}
+		
+		return true;
+	}
+	
+	
+	/**
 	 * Draws the current Tileset.
 	 * @param flat If true, wraps at screen width, otherwise wraps at 16.
 	 */
