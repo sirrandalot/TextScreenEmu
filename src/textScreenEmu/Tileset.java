@@ -63,6 +63,8 @@ public class Tileset {
 			if(vals.length != tWidth*tHeight*numT)
 				throw new Exception("Array length does not match width, height and num parameters, must be tWidth * tHeight * numT.");
 			
+			values = vals.clone();
+			
 		}catch(Exception e){
 			System.out.println("ERROR: " + e);
 			e.printStackTrace();
@@ -72,7 +74,6 @@ public class Tileset {
 		tileHeight = tHeight;
 		numTiles = numT;
 		
-		values = vals.clone();
 	}
 	
 	
@@ -100,6 +101,8 @@ public class Tileset {
 				if(tiles[i].tileWidth != tWidth || tiles[i].tileHeight != tHeight)
 					throw new Exception("Tile size " + tiles[i].tileWidth + "x" + tiles[i].tileHeight + " does not match specified size: " + tWidth + "x" + tHeight + ".");
 			
+			values = new int[tWidth*tHeight*tiles.length];
+			
 		}catch(Exception e){
 			System.out.println("ERROR: " + e);
 			e.printStackTrace();
@@ -109,8 +112,6 @@ public class Tileset {
 		tileWidth = tWidth;
 		tileHeight = tHeight;
 		numTiles = tiles.length;
-		
-		values = new int[tileWidth*tileHeight*numTiles];
 		
 		for(int i = 0; i < tiles.length; i++)
 			setTile(i, tiles[i]);
@@ -133,13 +134,13 @@ public class Tileset {
 			if(vals.length != tileWidth*tileHeight)
 				throw new Exception("Array length does not match tile width and height, must be " + tileWidth + " * " + tileHeight + " = " + (tileWidth*tileHeight) + ".");
 			
+			for(int t = 0; t < vals.length; t++){
+				values[index*tileWidth*tileHeight + t] = vals[t];
+			}
+			
 		}catch(Exception e){
 			System.out.println("ERROR: " + e);
 			e.printStackTrace();
-		}
-		
-		for(int t = 0; t < vals.length; t++){
-			values[index*tileWidth*tileHeight + t] = vals[t];
 		}
 		
 	}
@@ -158,11 +159,12 @@ public class Tileset {
 			if(tile.tileWidth != tileWidth || tile.tileHeight != tileHeight)
 				throw new Exception("Tile size " + tile.tileWidth + "x" + tile.tileHeight + " does not match specified size: " + tileWidth + "x" + tileHeight + ".");
 			
+			setTile(index, tile.values);
+			
 		}catch(Exception e){
 			System.out.println("ERROR: " + e);
 			e.printStackTrace();
 		}
 		
-		setTile(index, tile.values);
 	}
 }

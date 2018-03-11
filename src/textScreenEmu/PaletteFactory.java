@@ -19,12 +19,14 @@ public class PaletteFactory {
 			if(colours.length < 2)
 				throw new Exception("Palette must contain at least 2 colours.");
 			
+			return new Palette(colours);
+			
 		}catch(Exception e){
 			System.out.println("ERROR: " + e);
 			e.printStackTrace();
 		}
 		
-		return new Palette(colours);
+		return null;
 	}
 	
 	

@@ -33,6 +33,7 @@ public class Tile {
 	 */
 	public Tile(int width, int height, int[] vals){
 		
+		
 		//Check if the input values are appropriate
 		try{
 			
@@ -45,6 +46,8 @@ public class Tile {
 			if(vals.length != width*height)
 				throw new Exception("Array length does not match width and height parameters, must be width * height.");
 			
+			values = vals.clone();
+			
 		}catch(Exception e){
 			System.out.println("ERROR: " + e);
 			e.printStackTrace();
@@ -53,7 +56,6 @@ public class Tile {
 		tileWidth = width;
 		tileHeight = height;
 		
-		values = vals.clone();
 	}
 	
 	/**

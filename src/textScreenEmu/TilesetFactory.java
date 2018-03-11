@@ -225,11 +225,13 @@ public class TilesetFactory {
 			
 			img = ImageIO.read(TilesetFactory.class.getResource("/textScreenEmu/images/" + name));
 			
+			return getTilesetFromImage(img, tileWidth, tileHeight, numX, numY);
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 		
-		return getTilesetFromImage(img, tileWidth, tileHeight, numX, numY);
+		return new Tileset(tileWidth, tileHeight, numX*numY);
 	}
 	
 	
@@ -245,6 +247,9 @@ public class TilesetFactory {
 	 */
 	public static Tileset getTilesetFromImage(BufferedImage img, int tileWidth, int tileHeight, int numX, int numY){
 		
+		//Create an array to hold the values
+		int[] values = new int[img.getWidth()*img.getHeight()];
+		
 		//Check if the input parameters are appropriate
 		try{
 			
@@ -254,34 +259,31 @@ public class TilesetFactory {
 			if(img.getHeight() != tileHeight*numY)
 				throw new Exception("Image height " + img.getHeight() + " does not match tile width and number of x tiles " + tileHeight + " and " + numY + ".");
 			
-		}catch(Exception e){
-			System.out.println("ERROR: " + e);
-			e.printStackTrace();
-		}
-		
-		//Create an array to hold the values
-		int[] values = new int[img.getWidth()*img.getHeight()];
-		
-		//Index counter
-		int c = 0;
-		
-		//Iterate through the image
-		for(int ty = 0; ty < numY; ty++){
-			for(int tx = 0; tx < numX; tx++){
-				
-				for(int j = 0; j < tileHeight; j++){
-					for(int i = 0; i < tileWidth; i++){
-						
-						//Check the red value of the pixel
-						int r = img.getRGB(tileWidth*tx + i, tileHeight*ty + j) & 0xFF;
-						
-						if(r > 50)
-							values[c] = 1;
-						
-						c++;
+			//Index counter
+			int c = 0;
+			
+			//Iterate through the image
+			for(int ty = 0; ty < numY; ty++){
+				for(int tx = 0; tx < numX; tx++){
+					
+					for(int j = 0; j < tileHeight; j++){
+						for(int i = 0; i < tileWidth; i++){
+							
+							//Check the red value of the pixel
+							int r = img.getRGB(tileWidth*tx + i, tileHeight*ty + j) & 0xFF;
+							
+							if(r > 50)
+								values[c] = 1;
+							
+							c++;
+						}
 					}
 				}
 			}
+			
+		}catch(Exception e){
+			System.out.println("ERROR: " + e);
+			e.printStackTrace();
 		}
 		
 		

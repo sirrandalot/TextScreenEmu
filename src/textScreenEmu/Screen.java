@@ -66,6 +66,10 @@ public class Screen extends JPanel{
 	 */
 	public Screen(int numTx, int numTy, int scale, Tileset t, Palette p){
 		
+		int nx = numTx;
+		int ny = numTy;
+		int s = scale;
+		
 		try{
 			
 			if(numTx < 1 || numTx > 256)
@@ -77,14 +81,19 @@ public class Screen extends JPanel{
 			if(scale < 1 || scale > 16)
 				throw new Exception("Image scale " + scale + " out of range, must be between 1 and 16 inclusively.");
 			
+			
 		}catch(Exception e){
 			System.out.println("ERROR: " + e);
 			e.printStackTrace();
+			
+			nx = 16;
+			ny = 16;
+			s = 2;
 		}
 		
-		numTilesX = numTx;
-		numTilesY = numTy;
-		imageScale = scale;
+		numTilesX = nx;
+		numTilesY = ny;
+		imageScale = s;
 		
 		tileset = t;
 		palette = p;
@@ -93,6 +102,7 @@ public class Screen extends JPanel{
 		BIScaled = new BufferedImage(numTilesX*tileset.tileWidth*imageScale, numTilesY*tileset.tileHeight*imageScale, BufferedImage.TYPE_INT_RGB);
 		
 		this.setPreferredSize(new Dimension(numTilesX*tileset.tileWidth*imageScale, numTilesY*tileset.tileHeight*imageScale));
+		
 	}
 	
 	

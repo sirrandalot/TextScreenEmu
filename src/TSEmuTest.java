@@ -21,7 +21,7 @@ public class TSEmuTest {
 		TilesetPredef tsPredef = TilesetPredef.CODEPAGE437_16x16;
 		PalettePredef plPredef = PalettePredef.PHOSPHOR_8;
 		
-		s = new Screen(32, 16, 2, TilesetFactory.createTileset(tsPredef), PaletteFactory.createPalette(plPredef));
+		s = new Screen(16, 16, 2, TilesetFactory.createTileset(tsPredef), PaletteFactory.createPalette(plPredef));
 		
 		mainFrame.add(s);
 		
