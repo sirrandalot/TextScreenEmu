@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.swing.JPanel;
 
@@ -188,6 +189,20 @@ public class Screen extends JPanel{
 		
 		
 		return true;
+	}
+	
+	
+	/**
+	 * Draws a (seeded) random tile at a tile position.
+	 * @param x The x position.
+	 * @param y The y position.
+	 * @param seed The seed for the random tile number.
+	 * @return True if the tile was draw, false if it was out of bounds.
+	 */
+	public boolean drawRandomTile(int x, int y, long seed){
+		Random r = new Random(seed);
+		
+		return drawTile(x, y, r.nextInt(tileset.numTiles));
 	}
 	
 	

@@ -42,10 +42,13 @@ public class TSEmuTest {
 		
 		//s.drawTile(1, 1, 2);
 		
-		s.drawTileset(false);
+		//s.drawTileset(false);
 		
 		//s.drawPalette(false);
 		
+		for(int i = 0; i < 10; i++){
+			s.drawRandomTile(i, i, i*((long)(Math.random()*5000)));
+		}
 		
 		
 		
