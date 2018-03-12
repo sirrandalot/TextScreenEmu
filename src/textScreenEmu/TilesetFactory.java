@@ -54,160 +54,42 @@ public class TilesetFactory {
 		
 		switch(t){
 		case CODEPAGE437_9x16:
-			return makeTileset_Codepage437_9x16();
+			return getTilesetFromFile("cp437_9x16.png", 9, 16, 16, 16);
 		case CODEPAGE437_8x8:
-			return makeTileset_Codepage437_8x8();
+			return getTilesetFromFile("cp437_8x8.png", 8, 8, 16, 16);
 		case CODEPAGE437_10x10:
-			return makeTileset_Codepage437_10x10();
+			return getTilesetFromFile("cp437_10x10.png", 10, 10, 16, 16);
 		case CODEPAGE437_12x12:
-			return makeTileset_Codepage437_12x12();
+			return getTilesetFromFile("cp437_12x12.png", 12, 12, 16, 16);
 		case CODEPAGE437_16x16:
-			return makeTileset_Codepage437_16x16();
+			return getTilesetFromFile("cp437_16x16.png", 16, 16, 16, 16);
 		case SIMPLEMOOD_16x16:
-			return makeTileset_Simplemood_16x16();
+			return getTilesetFromFile("sm_16x16.png", 16, 16, 16, 16);
 		case MEDIEVAL_8x16:
-			return makeTileset_Medieval_8x16();
+			return getTilesetFromFile("medieval_8x16.bmp", 8, 16, 16, 16);
 		case BROADWAY_8x16:
-			return makeTileset_Broadway_8x16();
+			return getTilesetFromFile("broadway_8x16.bmp", 8, 16, 16, 16);
 		case ANTIQUE_8x16:
-			return makeTileset_Antique_8x16();
+			return getTilesetFromFile("antique_8x16.bmp", 8, 16, 16, 16);
 		case COURIER_8x16:
-			return makeTileset_Courier_8x16();
+			return getTilesetFromFile("courier_8x16.bmp", 8, 16, 16, 16);
 		case RETRO_10x10:
-			return makeTileset_Retro_10x10();
+			return getTilesetFromFile("retro_10x10.png", 10, 10, 16, 16);
 		case BASIC_8x8:
-			return makeTileset_Basic_8x8();
+			return getTilesetFromFile("basic_8x8.png", 8, 8, 16, 16);
 		case COMICSANS_16x16:
-			return makeTileset_Comicsans_16x16();
+			return getTilesetFromFile("comicsans_16x16.png", 16, 16, 16, 16);
 		case DOODLE_6x6:
-			return makeTileset_Doodle_6x6();
+			return getTilesetFromFile("doodle_6x6.png", 6, 6, 16, 16);
 		case DOODLE_16x16:
-			return makeTileset_Doodle_16x16();
+			return getTilesetFromFile("doodle_16x16.png", 16, 16, 16, 16);
 		default:
 			System.out.println("Enum value not recognized, returning code page 437 9x16 tileset...");
-			return makeTileset_Codepage437_9x16();
+			return getTilesetFromFile("cp437_9x16.png", 9, 16, 16, 16);
 		}
 	}
 	
-	/**
-	 * Creates a "CodePage 437" 9x16 Tileset.
-	 * @return A "CodePage 437" 9x16 Tileset.
-	 */
-	private static Tileset makeTileset_Codepage437_9x16(){
-		return getTilesetFromFile("cp437_9x16.png", 9, 16, 16, 16);
-	}
-	
-	/**
-	 * Creates a "CodePage 437" 8x8 Tileset.
-	 * @return A "CodePage 437" 8x8 Tileset.
-	 */
-	private static Tileset makeTileset_Codepage437_8x8(){
-		return getTilesetFromFile("cp437_8x8.png", 8, 8, 16, 16);
-	}
-	
-	/**
-	 * Creates a "CodePage 437" 10x10 Tileset.
-	 * @return A "CodePage 437" 10x10 Tileset.
-	 */
-	private static Tileset makeTileset_Codepage437_10x10(){
-		return getTilesetFromFile("cp437_10x10.png", 10, 10, 16, 16);
-	}
-	
-	/**
-	 * Creates a "CodePage 437" 12x12 Tileset.
-	 * @return A "CodePage 437" 12x12 Tileset.
-	 */
-	private static Tileset makeTileset_Codepage437_12x12(){
-		return getTilesetFromFile("cp437_12x12.png", 12, 12, 16, 16);
-	}
-	
-	/**
-	 * Creates a "CodePage 437" 16x16 Tileset.
-	 * @return A "CodePage 437" 16x16 Tileset.
-	 */
-	private static Tileset makeTileset_Codepage437_16x16(){
-		return getTilesetFromFile("cp437_16x16.png", 16, 16, 16, 16);
-	}
-	
-	/**
-	 * Creates a "Simple Mood" 16x16 Tileset.
-	 * @return A "Simple Mood" 16x16 Tileset.
-	 */
-	private static Tileset makeTileset_Simplemood_16x16(){
-		return getTilesetFromFile("sm_16x16.png", 16, 16, 16, 16);
-	}
-	
-	/**
-	 * Creates a "Medieval" 8x16 Tileset.
-	 * @return A "Medieval" 8x16 Tileset.
-	 */
-	private static Tileset makeTileset_Medieval_8x16(){
-		return getTilesetFromFile("medieval_8x16.bmp", 8, 16, 16, 16);
-	}
-	
-	/**
-	 * Creates a "Broadway" 8x16 Tileset.
-	 * @return A "Broadway" 8x16 Tileset.
-	 */
-	private static Tileset makeTileset_Broadway_8x16(){
-		return getTilesetFromFile("broadway_8x16.bmp", 8, 16, 16, 16);
-	}
-	
-	/**
-	 * Creates a "Antique" 8x16 Tileset.
-	 * @return A "Antique" 8x16 Tileset.
-	 */
-	private static Tileset makeTileset_Antique_8x16(){
-		return getTilesetFromFile("antique_8x16.bmp", 8, 16, 16, 16);
-	}
-	
-	/**
-	 * Creates a "Courier" 8x16 Tileset.
-	 * @return A "Courier" 8x16 Tileset.
-	 */
-	private static Tileset makeTileset_Courier_8x16(){
-		return getTilesetFromFile("courier_8x16.bmp", 8, 16, 16, 16);
-	}
-	
-	/**
-	 * Creates a "Retro" 10x10 Tileset.
-	 * @return A "Retro" 10x10 Tileset.
-	 */
-	private static Tileset makeTileset_Retro_10x10(){
-		return getTilesetFromFile("retro_10x10.png", 10, 10, 16, 16);
-	}
-	
-	/**
-	 * Creates a "Basic" 8x8 Tileset.
-	 * @return A "Basic" 8x8 Tileset.
-	 */
-	private static Tileset makeTileset_Basic_8x8(){
-		return getTilesetFromFile("basic_8x8.png", 8, 8, 16, 16);
-	}
-	
-	/**
-	 * Creates a "Comic Sans" 16x16 Tileset.
-	 * @return A "Comic Sans" 16x16 Tileset.
-	 */
-	private static Tileset makeTileset_Comicsans_16x16(){
-		return getTilesetFromFile("comicsans_16x16.png", 16, 16, 16, 16);
-	}
-	
-	/**
-	 * Creates a "Doodle" 6x6 Tileset.
-	 * @return A "Doodle" 6x6 Tileset.
-	 */
-	private static Tileset makeTileset_Doodle_6x6(){
-		return getTilesetFromFile("doodle_6x6.png", 6, 6, 16, 16);
-	}
-	
-	/**
-	 * Creates a "Doodle" 16x16 Tileset.
-	 * @return A "Doodle" 16x16 Tileset.
-	 */
-	private static Tileset makeTileset_Doodle_16x16(){
-		return getTilesetFromFile("doodle_16x16.png", 16, 16, 16, 16);
-	}
+
 	
 	/**
 	 * Creates a Tileset using an image saved inside the image package.

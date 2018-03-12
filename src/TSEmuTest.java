@@ -19,13 +19,13 @@ public class TSEmuTest {
 		
 		Screen s;
 		
-		TilesetPredef tsPredef = TilesetPredef.CODEPAGE437_16x16;
-		PalettePredef plPredef = PalettePredef.PHOSPHOR_8;
+		TilesetPredef tsPredef = TilesetPredef.CODEPAGE437_12x12;
+		PalettePredef plPredef = PalettePredef.VGA_16;
 		
 		Palette pal = PaletteFactory.createPalette(plPredef);
 		
-		//s = new Screen(16, 16, 2, TilesetFactory.createTileset(tsPredef), PaletteFactory.createPalette(plPredef));
-		s = new Screen(8, 1, 1, TilesetFactory.createTileset(1, 1, 2, new int[]{0, 1}), pal);
+		s = new Screen(16, 16, 2, TilesetFactory.createTileset(tsPredef), PaletteFactory.createPalette(plPredef));
+		//s = new Screen(8, 1, 1, TilesetFactory.createTileset(1, 1, 2, new int[]{0, 1}), pal);
 		
 		mainFrame.add(s);
 		
@@ -46,7 +46,7 @@ public class TSEmuTest {
 		
 		//s.drawTile(1, 1, 2);
 		
-		//s.drawTileset(false);
+		s.drawTileset(false);
 		
 		s.drawPalette(false);
 		
@@ -55,11 +55,11 @@ public class TSEmuTest {
 //		}
 //		
 //		s.drawTile(10,  2, '+');
-		
-		
-		//s.setForegroundColour(3);
-		
-		//s.drawString(2,  5,  "Testing sTrIng!!?? Testing out this new draw string feature man this is pretty cool but I have to keep writing in order to test it properly.", true, true);
+//		
+//		
+//		s.setForegroundColour(3);
+//		
+//		s.drawString(2,  5,  "Testing sTrIng!!?? Testing out this new draw string feature man this is pretty cool but I have to keep writing in order to test it properly.", true, true);
 		
 		
 		s.repaint();
