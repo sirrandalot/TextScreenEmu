@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -20,7 +21,7 @@ public class TSEmuTest {
 		
 		Screen s;
 		
-		TilesetPredef tsPredef = TilesetPredef.CODEPAGE437_12x12;
+		TilesetPredef tsPredef = TilesetPredef.CODEPAGE437_16x16;
 		PalettePredef plPredef = PalettePredef.VGA_16;
 		
 		Palette pal = PaletteFactory.createPalette(plPredef);
@@ -47,11 +48,23 @@ public class TSEmuTest {
 		
 		//s.drawTile(1, 1, 2);
 		
-		//s.drawTileset(false);
+		s.drawTileset(false);
 		
 		//s.drawPalette(false);
 		
-		s.drawTile(5, 5, ASCIIname.LETTER_i_UMLAUT);
+		//s.drawTile(5, 5, ASCIIname.LETTER_i_UMLAUT);
+		
+//		Field[] fields = ASCIIname.class.getDeclaredFields();
+//		
+//		int c = 0;
+//		
+//		for(Field f : fields){
+//			System.out.println(c + ". " + f.getName());
+//			
+//			c++;
+//			
+//			if(c%16 == 0) System.out.println();
+//		}
 		
 //		for(int i = 0; i < 10; i++){
 //			s.drawRandomTile(i, i, i*((long)(Math.random()*5000)));
