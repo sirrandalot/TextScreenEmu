@@ -4,6 +4,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
+import textScreenEmu.ASCIIname;
 import textScreenEmu.Palette;
 import textScreenEmu.PaletteFactory;
 import textScreenEmu.PalettePredef;
@@ -19,7 +20,7 @@ public class TSEmuTest {
 		
 		Screen s;
 		
-		TilesetPredef tsPredef = TilesetPredef.SIMPLEMOOD_16x16;
+		TilesetPredef tsPredef = TilesetPredef.CODEPAGE437_12x12;
 		PalettePredef plPredef = PalettePredef.VGA_16;
 		
 		Palette pal = PaletteFactory.createPalette(plPredef);
@@ -46,9 +47,11 @@ public class TSEmuTest {
 		
 		//s.drawTile(1, 1, 2);
 		
-		s.drawTileset(false);
+		//s.drawTileset(false);
 		
 		//s.drawPalette(false);
+		
+		s.drawTile(5, 5, ASCIIname.LETTER_i_UMLAUT);
 		
 //		for(int i = 0; i < 10; i++){
 //			s.drawRandomTile(i, i, i*((long)(Math.random()*5000)));
