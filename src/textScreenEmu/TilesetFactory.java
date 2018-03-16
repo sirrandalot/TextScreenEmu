@@ -54,38 +54,38 @@ public class TilesetFactory {
 		
 		switch(t){
 		case CODEPAGE437_9x16:
-			return getTilesetFromFile("cp437_9x16.png", 9, 16, 16, 16);
+			return getTilesetFromFile("cp437_9x16.png", 9, 16, 16, 16, 5);
 		case CODEPAGE437_8x8:
-			return getTilesetFromFile("cp437_8x8.png", 8, 8, 16, 16);
+			return getTilesetFromFile("cp437_8x8.png", 8, 8, 16, 16, 5);
 		case CODEPAGE437_10x10:
-			return getTilesetFromFile("cp437_10x10.png", 10, 10, 16, 16);
+			return getTilesetFromFile("cp437_10x10.png", 10, 10, 16, 16, 5);
 		case CODEPAGE437_12x12:
-			return getTilesetFromFile("cp437_12x12.png", 12, 12, 16, 16);
+			return getTilesetFromFile("cp437_12x12.png", 12, 12, 16, 16, 5);
 		case CODEPAGE437_16x16:
-			return getTilesetFromFile("cp437_16x16.png", 16, 16, 16, 16);
+			return getTilesetFromFile("cp437_16x16.png", 16, 16, 16, 16, 5);
 		case SIMPLEMOOD_16x16:
-			return getTilesetFromFile("sm_16x16.png", 16, 16, 16, 16);
+			return getTilesetFromFile("sm_16x16.png", 16, 16, 16, 16, 5);
 		case MEDIEVAL_8x16:
-			return getTilesetFromFile("medieval_8x16.bmp", 8, 16, 16, 16);
+			return getTilesetFromFile("medieval_8x16.bmp", 8, 16, 16, 16, 5);
 		case BROADWAY_8x16:
-			return getTilesetFromFile("broadway_8x16.bmp", 8, 16, 16, 16);
+			return getTilesetFromFile("broadway_8x16.bmp", 8, 16, 16, 16, 5);
 		case ANTIQUE_8x16:
-			return getTilesetFromFile("antique_8x16.bmp", 8, 16, 16, 16);
+			return getTilesetFromFile("antique_8x16.bmp", 8, 16, 16, 16, 5);
 		case COURIER_8x16:
-			return getTilesetFromFile("courier_8x16.bmp", 8, 16, 16, 16);
+			return getTilesetFromFile("courier_8x16.bmp", 8, 16, 16, 16, 5);
 		case RETRO_10x10:
-			return getTilesetFromFile("retro_10x10.png", 10, 10, 16, 16);
+			return getTilesetFromFile("retro_10x10.png", 10, 10, 16, 16, 5);
 		case BASIC_8x8:
-			return getTilesetFromFile("basic_8x8.png", 8, 8, 16, 16);
+			return getTilesetFromFile("basic_8x8.png", 8, 8, 16, 16, 5);
 		case COMICSANS_16x16:
-			return getTilesetFromFile("comicsans_16x16.png", 16, 16, 16, 16);
+			return getTilesetFromFile("comicsans_16x16.png", 16, 16, 16, 16, 50);
 		case DOODLE_6x6:
-			return getTilesetFromFile("doodle_6x6.png", 6, 6, 16, 16);
+			return getTilesetFromFile("doodle_6x6.png", 6, 6, 16, 16, 50);
 		case DOODLE_16x16:
-			return getTilesetFromFile("doodle_16x16.png", 16, 16, 16, 16);
+			return getTilesetFromFile("doodle_16x16.png", 16, 16, 16, 16, 50);
 		default:
 			System.out.println("Enum value not recognized, returning code page 437 9x16 tileset...");
-			return getTilesetFromFile("cp437_9x16.png", 9, 16, 16, 16);
+			return getTilesetFromFile("cp437_9x16.png", 9, 16, 16, 16, 5);
 		}
 	}
 	
@@ -98,16 +98,17 @@ public class TilesetFactory {
 	 * @param tileHeight The tile height.
 	 * @param numX The number of horizontal tiles.
 	 * @param numY The number of vertical tiles.
+	 * @param thresh The threshold for determining if a pixel is foreground.
 	 * @return A Tileset based off of a file in the image package.
 	 */
-	private static Tileset getTilesetFromFile(String name, int tileWidth, int tileHeight, int numX, int numY){
+	private static Tileset getTilesetFromFile(String name, int tileWidth, int tileHeight, int numX, int numY, int thresh){
 		BufferedImage img = null;
 		
 		try{
 			
 			img = ImageIO.read(TilesetFactory.class.getResource("/textScreenEmu/images/tilesets/" + name));
 			
-			return getTilesetFromImage(img, tileWidth, tileHeight, numX, numY);
+			return getTilesetFromImage(img, tileWidth, tileHeight, numX, numY, thresh);
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -125,9 +126,10 @@ public class TilesetFactory {
 	 * @param tileHeight The tile height.
 	 * @param numX The number of horizontal tiles.
 	 * @param numY The number of vertical tiles.
+	 * @param thresh The threshold for determining if a pixel is foreground.
 	 * @return A Tileset based off of the input image.
 	 */
-	public static Tileset getTilesetFromImage(BufferedImage img, int tileWidth, int tileHeight, int numX, int numY){
+	public static Tileset getTilesetFromImage(BufferedImage img, int tileWidth, int tileHeight, int numX, int numY, int thresh){
 		
 		//Create an array to hold the values
 		int[] values = new int[img.getWidth()*img.getHeight()];
@@ -154,7 +156,7 @@ public class TilesetFactory {
 							//Check the red value of the pixel
 							int r = img.getRGB(tileWidth*tx + i, tileHeight*ty + j) & 0xFF;
 							
-							if(r > 50)
+							if(r > thresh)
 								values[c] = 1;
 							
 							c++;

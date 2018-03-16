@@ -19,7 +19,7 @@ public class TSEmuTest {
 		
 		Screen s;
 		
-		TilesetPredef tsPredef = TilesetPredef.CODEPAGE437_12x12;
+		TilesetPredef tsPredef = TilesetPredef.SIMPLEMOOD_16x16;
 		PalettePredef plPredef = PalettePredef.VGA_16;
 		
 		Palette pal = PaletteFactory.createPalette(plPredef);
@@ -48,7 +48,7 @@ public class TSEmuTest {
 		
 		s.drawTileset(false);
 		
-		s.drawPalette(false);
+		//s.drawPalette(false);
 		
 //		for(int i = 0; i < 10; i++){
 //			s.drawRandomTile(i, i, i*((long)(Math.random()*5000)));
