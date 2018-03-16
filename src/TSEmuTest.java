@@ -22,9 +22,9 @@ public class TSEmuTest {
 		Screen s;
 		
 		TilesetPredef tsPredef = TilesetPredef.CODEPAGE437_16x16;
-		PalettePredef plPredef = PalettePredef.VGA_16;
+		PalettePredef plPredef = PalettePredef.BLACK_AND_WHITE;
 		
-		Palette pal = PaletteFactory.createPalette(plPredef);
+		//Palette pal = PaletteFactory.createPalette(plPredef);
 		
 		s = new Screen(16, 16, 2, TilesetFactory.createTileset(tsPredef), PaletteFactory.createPalette(plPredef));
 		//s = new Screen(8, 1, 1, TilesetFactory.createTileset(1, 1, 2, new int[]{0, 1}), pal);
@@ -86,7 +86,7 @@ public class TSEmuTest {
 //			e1.printStackTrace();
 //		}
 //		
-//		File outputfile = new File("pal_" + plPredef.toString() + ".png");
+//		File outputfile = new File("Tileset_" + tsPredef.toString() + ".png");
 //        try {
 //			ImageIO.write(s.BIScaled, "png", outputfile);
 //		} catch (IOException e) {
