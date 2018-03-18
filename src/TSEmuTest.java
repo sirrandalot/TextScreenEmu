@@ -22,7 +22,7 @@ public class TSEmuTest {
 		Screen s;
 		
 		TilesetPredef tsPredef = TilesetPredef.CODEPAGE437_16x16;
-		PalettePredef plPredef = PalettePredef.BLACK_AND_WHITE;
+		PalettePredef plPredef = PalettePredef.APPLEII_16;
 		
 		//Palette pal = PaletteFactory.createPalette(plPredef);
 		
@@ -46,13 +46,51 @@ public class TSEmuTest {
 		
 		s.setForegroundColour(7);
 		
-		//s.drawTile(1, 1, 2);
+		s.drawTile(1, 1, 2);
 		
-		s.drawTileset(false);
+		s.setBackgroundColour(4);
 		
-		//s.drawPalette(false);
+		s.drawTile(5, 5, ASCIIname.LETTER_i_UMLAUT);
+		s.drawTile(5, 6, ASCIIname.AMPERSAND);
+		s.drawTile(5, 7, ASCIIname.ARROW_VERTICAL_LINE);
+		s.drawTile(5, 8, ASCIIname.LETTER_A_RING);
 		
-		//s.drawTile(5, 5, ASCIIname.LETTER_i_UMLAUT);
+		s.drawTile(8, 5, ASCIIname.LETTER_i_UMLAUT);
+		s.drawTile(8, 6, ASCIIname.AMPERSAND);
+		s.drawTile(8, 7, ASCIIname.ARROW_VERTICAL_LINE);
+		s.drawTile(8, 8, ASCIIname.LETTER_A_RING);
+		
+		s.setColours(6, 9);
+		
+		s.drawTile(6, 5, ASCIIname.DIVIDE);
+		s.drawTile(6, 6, ASCIIname.FRACTION_QUARTER);
+		s.drawTile(6, 7, ASCIIname.GREEK_PHI_UPPER);
+		s.drawTile(6, 8, ASCIIname.APPROXIMATION);
+		
+		s.useSameBackground(true);
+		
+		s.drawTile(8, 5, ASCIIname.DIVIDE);
+		
+		s.useSameBackground(false);
+		s.useSameForeground(true);
+		
+		s.drawTile(8, 6, ASCIIname.FRACTION_QUARTER);
+		
+		s.useSameBackground(true);
+		
+		s.drawTile(8, 7, ASCIIname.GREEK_PHI_UPPER);
+		
+		s.useSameBackground(false);
+		s.useSameForeground(false);
+		
+		s.drawTile(8, 8, ASCIIname.APPROXIMATION);
+		
+		
+		//s.drawTileset(false);
+		
+		s.drawPalette(false);
+		
+		
 		
 //		Field[] fields = ASCIIname.class.getDeclaredFields();
 //		

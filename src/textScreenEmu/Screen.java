@@ -17,6 +17,12 @@ import javax.swing.JPanel;
 public class Screen extends JPanel{
 	
 	/**
+	 * Default serial UID, needed becuase JPanel implements Serializable.
+	 * Not really necessary but gets rid of compiler warning.
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * The image to which everything will be drawn.
 	 */
 	private BufferedImage BI;
@@ -55,6 +61,17 @@ public class Screen extends JPanel{
 	 * The colour palette to use.
 	 */
 	public Palette palette;
+	
+	/**
+	 * Whether or not to draw using the background colour that was most
+	 * recently drawn at a given position.
+	 */
+	private boolean[] useSameColour = {false, false};
+	
+	/**
+	 * Hold the most recently used values for foreground and background colours.
+	 */
+	private int[][] tileColours;
 	
 	
 	/**
@@ -104,6 +121,9 @@ public class Screen extends JPanel{
 		
 		this.setPreferredSize(new Dimension(numTilesX*tileset.tileWidth*imageScale, numTilesY*tileset.tileHeight*imageScale));
 		
+		tileColours = new int[numTilesX*numTilesY][2];
+		
+		clearScreen();
 	}
 	
 	
@@ -111,11 +131,17 @@ public class Screen extends JPanel{
 	 * Colours the entire screen with the current background colour.
 	 */
 	public void clearScreen(){
-
+		
+		//Set all pixels to background colour
 		for(int i = 0; i < BI.getWidth(); i++){
 			for(int j = 0; j < BI.getHeight(); j++){
 				BI.setRGB(i, j, palette.colours[colourIndices[0]]);
 			}
+		}
+		
+		for(int i = 0; i < tileColours.length; i++){
+			tileColours[i][0] = colourIndices[0];
+			tileColours[i][1] = colourIndices[1];
 		}
 	}
 	
@@ -136,7 +162,7 @@ public class Screen extends JPanel{
 	
 	
 	/**
-	 * Sets the backgroundground colour.
+	 * Sets the background colour, -1 for "transparent".
 	 * @param index The new colour index.
 	 * @return True if the colour was set successfully, false otherwise.
 	 */
@@ -151,12 +177,32 @@ public class Screen extends JPanel{
 	
 	
 	/**
+	 * Sets whether or not to use the most recently used background colour for a tile position
+	 * when drawing a tile.
+	 * @param use Whether or not to use the previous background colour of a tile.
+	 */
+	public void useSameBackground(boolean use){
+		useSameColour[0] = use;
+	}
+	
+	
+	/**
+	 * Sets whether or not to use the most recently used foreground colour for a tile position
+	 * when drawing a tile.
+	 * @param use Whether or not to use the previous foreground colour of a tile.
+	 */
+	public void useSameForeground(boolean use){
+		useSameColour[1] = use;
+	}
+	
+	
+	/**
 	 * Sets both the foreground and background colour.
 	 * @param indexBackground The new background colour index.
 	 * @param indexForeground The new foreground colour index.
 	 * @return True if the colour was set successfully, false otherwise (for both background and foreground).
 	 */
-	public boolean[] setColour(int indexBackground, int indexForeground){
+	public boolean[] setColours(int indexBackground, int indexForeground){
 		return new boolean[]{setBackgroundColour(indexBackground), setForegroundColour(indexForeground)};
 	}
 	
@@ -173,6 +219,15 @@ public class Screen extends JPanel{
 			return false;
 		}
 		
+		int[] tempCol = {colourIndices[0], colourIndices[1]};
+		
+		//Use the most recent colours of this tile if we're supposed to
+		for(int t = 0; t < 2; t++)
+			if(useSameColour[t])
+				colourIndices[t] = tileColours[y*numTilesX + x][t];
+			
+		
+		
 		int offset = tile*tileset.tileWidth*tileset.tileHeight;
 		
 		int offX = x*tileset.tileWidth;
@@ -186,6 +241,14 @@ public class Screen extends JPanel{
 				c++;
 			}
 		}
+		
+		//Keep track of what colours were used to draw this tile
+		tileColours[y*numTilesX + x][0] = colourIndices[0];
+		tileColours[y*numTilesX + x][1] = colourIndices[1];
+
+		for(int t = 0; t < 2; t++)
+			if(useSameColour[t])
+				colourIndices[t] = tempCol[t];
 		
 		
 		return true;
