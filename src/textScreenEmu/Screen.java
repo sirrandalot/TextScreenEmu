@@ -154,6 +154,12 @@ public class Screen extends JPanel{
 	public boolean setForegroundColour(int index){
 		if(index >= 0 && index < palette.getNumColours()){
 			colourIndices[1] = index;
+			useSameColour[1] = false;
+			return true;
+		}
+		
+		if(index == -1){
+			useSameColour[1] = true;
 			return true;
 		}
 		
@@ -169,6 +175,12 @@ public class Screen extends JPanel{
 	public boolean setBackgroundColour(int index){
 		if(index >= 0 && index < palette.getNumColours()){
 			colourIndices[0] = index;
+			useSameColour[0] = false;
+			return true;
+		}
+		
+		if(index == -1){
+			useSameColour[0] = true;
 			return true;
 		}
 		

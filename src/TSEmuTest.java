@@ -67,21 +67,27 @@ public class TSEmuTest {
 		s.drawTile(6, 7, ASCIIname.GREEK_PHI_UPPER);
 		s.drawTile(6, 8, ASCIIname.APPROXIMATION);
 		
-		s.useSameBackground(true);
+		
+		//s.useSameBackground(true);
+		s.setBackgroundColour(-1);
 		
 		s.drawTile(8, 5, ASCIIname.DIVIDE);
 		
-		s.useSameBackground(false);
-		s.useSameForeground(true);
+		//s.useSameBackground(false);
+		s.setBackgroundColour(6);
+		//s.useSameForeground(true);
+		s.setForegroundColour(-1);
 		
 		s.drawTile(8, 6, ASCIIname.FRACTION_QUARTER);
 		
-		s.useSameBackground(true);
+		//s.useSameBackground(true);
+		s.setBackgroundColour(-1);
 		
 		s.drawTile(8, 7, ASCIIname.GREEK_PHI_UPPER);
 		
-		s.useSameBackground(false);
-		s.useSameForeground(false);
+		//s.useSameBackground(false);
+		//s.useSameForeground(false);
+		s.setColours(6, 9);
 		
 		s.drawTile(8, 8, ASCIIname.APPROXIMATION);
 		
