@@ -282,6 +282,85 @@ public class Screen extends JPanel{
 	
 	
 	/**
+	 * Draws a (seeded) garbage tile at a tile position by randomly mixing
+	 * several tiles together.
+	 * @param x The x position.
+	 * @param y The y position.
+	 * @param seed The seed for the randomness.
+	 * @return True if the tile was draw, false if it was out of bounds.
+	 */
+	public boolean drawGarbageTile(int x, int y, long seed){
+		
+		if(x < 0 || x > numTilesX-1 || y < 0 || y > numTilesY-1){
+			return false;
+		}
+		
+		Random r = new Random(seed);
+		
+		int[] tileNums = new int[]{
+			r.nextInt(tileset.numTiles),
+			r.nextInt(tileset.numTiles),
+			r.nextInt(tileset.numTiles),
+			r.nextInt(tileset.numTiles)
+		};
+		
+		int xRand = r.nextInt(3);
+		int yRand = r.nextInt(3);
+		
+		int xSplit = (int)Math.floor(tileset.tileWidth*(0.25*(1+xRand)));
+		int ySplit = (int)Math.floor(tileset.tileHeight*(0.25*(1+yRand)));
+		
+		
+		int[] tempCol = {colourIndices[0], colourIndices[1]};
+		
+		//Use the most recent colours of this tile if we're supposed to
+		for(int t = 0; t < 2; t++)
+			if(useSameColour[t])
+				colourIndices[t] = tileColours[y*numTilesX + x][t];
+			
+		
+		int offset = 0;
+		int tile = 0;
+		
+		int offX = x*tileset.tileWidth;
+		int offY = y*tileset.tileHeight;
+		
+		int c = 0;
+		
+		for(int j = 0; j < tileset.tileHeight; j++){
+			for(int i = 0; i < tileset.tileWidth; i++){
+				
+				if(i < xSplit && j < ySplit){
+					tile = tileNums[0];
+				}else if(i < xSplit && j >= ySplit){
+					tile = tileNums[1];
+				}else if(i >= xSplit && j < ySplit){
+					tile = tileNums[2];
+				}else{
+					tile = tileNums[3];
+				}
+				
+				offset = tile*tileset.tileWidth*tileset.tileHeight;
+				
+				BI.setRGB(offX + i, offY + j, palette.colours[colourIndices[tileset.values[offset+c]]]);
+				c++;
+			}
+		}
+		
+		//Keep track of what colours were used to draw this tile
+		tileColours[y*numTilesX + x][0] = colourIndices[0];
+		tileColours[y*numTilesX + x][1] = colourIndices[1];
+
+		for(int t = 0; t < 2; t++)
+			if(useSameColour[t])
+				colourIndices[t] = tempCol[t];
+		
+		
+		return true;
+	}
+	
+	
+	/**
 	 * Draws a String to the screen starting at a given position, assuming the tileset uses typical ASCII values.
 	 * @param x The starting x position.
 	 * @param y The starting y position.

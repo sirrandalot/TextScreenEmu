@@ -91,6 +91,13 @@ public class TSEmuTest {
 		
 		s.drawTile(8, 8, ASCIIname.APPROXIMATION);
 		
+		s.setColours(7, 10);
+		
+		for(int i = 0; i < 10; i++){
+			s.drawGarbageTile(10, 3 + i, (long)(Math.random()*100000.0));
+		}
+		
+		
 		
 		//s.drawTileset(false);
 		
