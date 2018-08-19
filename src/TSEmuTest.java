@@ -47,6 +47,7 @@ public class TSEmuTest {
 		s.setForegroundColour(7);
 		
 		s.drawTile(1, 1, 2);
+		s.drawRandomTile(2, 2, (long)(Math.random()*100000.0));
 		
 		s.setBackgroundColour(4);
 		
@@ -97,7 +98,14 @@ public class TSEmuTest {
 			s.drawGarbageTile(10, 3 + i, (long)(Math.random()*100000.0));
 		}
 		
+		s.setColours(8, 11);
 		
+		s.drawTile(6,  12, ASCIIname.LETTER_R);
+		s.setColours(9, 12);
+		s.drawTile(7,  12, ASCIIname.LETTER_R, true, false);
+		s.drawTile(6,  13, ASCIIname.LETTER_R, false, true);
+		s.setColours(8, 11);
+		s.drawTile(7,  13, ASCIIname.LETTER_R, true, true);
 		
 		//s.drawTileset(false);
 		

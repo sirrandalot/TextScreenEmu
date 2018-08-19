@@ -227,6 +227,20 @@ public class Screen extends JPanel{
 	 * @return True if the tile was drawn, false if it was out of bounds.
 	 */
 	public boolean drawTile(int x, int y, int tile){
+		return drawTile(x, y, tile, false, false);
+	}
+	
+	
+	/**
+	 * Draws a specified tile (flipped either horizontally, vertically or both) at a tile position.
+	 * @param x The x position.
+	 * @param y The y position.
+	 * @param tile The index of the tile to draw.
+	 * @param flipX Whether or not to flip the tile horizontally.
+	 * @param flipY Whether or not to flip the tile vertically.
+	 * @return True if the tile was drawn, false if it was out of bounds.
+	 */
+	public boolean drawTile(int x, int y, int tile, boolean flipX, boolean flipY){
 		if(x < 0 || x > numTilesX-1 || y < 0 || y > numTilesY-1 || tile < 0 || tile > tileset.numTiles-1){
 			return false;
 		}
@@ -245,10 +259,28 @@ public class Screen extends JPanel{
 		int offX = x*tileset.tileWidth;
 		int offY = y*tileset.tileHeight;
 		
+		int dx = 1;
+		int sx = 0;
+		int ex = tileset.tileWidth;
+		if(flipX){
+			dx = -1;
+			sx = tileset.tileWidth-1;
+			ex = -1;
+		}
+		
+		int dy = 1;
+		int sy = 0;
+		int ey = tileset.tileHeight;
+		if(flipY){
+			dy = -1;
+			sy = tileset.tileHeight-1;
+			ey = -1;
+		}
+		
 		int c = 0;
 		
-		for(int j = 0; j < tileset.tileHeight; j++){
-			for(int i = 0; i < tileset.tileWidth; i++){
+		for(int j = sy; j != ey; j += dy){
+			for(int i = sx; i != ex; i += dx){
 				BI.setRGB(offX + i, offY + j, palette.colours[colourIndices[tileset.values[offset+c]]]);
 				c++;
 			}
@@ -407,7 +439,7 @@ public class Screen extends JPanel{
 	 * @param s The string.
 	 * @param startSpace The index of the current space.
 	 * @param end The index of the end of the line.
-	 * @return True if there are no more spaces on teh line, false otherwise or if the string doesn't extend past the end of the line anyways.
+	 * @return True if there are no more spaces on the line, false otherwise or if the string doesn't extend past the end of the line anyways.
 	 */
 	private boolean noMoreSpaces(String s, int startSpace, int end){
 		
