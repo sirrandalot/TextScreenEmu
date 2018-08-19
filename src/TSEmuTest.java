@@ -10,6 +10,7 @@ import textScreenEmu.Palette;
 import textScreenEmu.PaletteFactory;
 import textScreenEmu.PalettePredef;
 import textScreenEmu.Screen;
+import textScreenEmu.TileImage;
 import textScreenEmu.TilesetFactory;
 import textScreenEmu.TilesetPredef;
 
@@ -106,6 +107,17 @@ public class TSEmuTest {
 		s.drawTile(6,  13, ASCIIname.LETTER_R, false, true);
 		s.setColours(8, 11);
 		s.drawTile(7,  13, ASCIIname.LETTER_R, true, true);
+		
+		
+		TileImage t = new TileImage(2, 2, 
+				new int[]{ASCIIname.AMPERSAND, ASCIIname.LETTER_r, ASCIIname.LINE_U2_L2_D0_R2, ASCIIname.LINE_U0_L2_D2_R0},
+				new int[][]{new int[]{-1, -1}, new int[]{2, 14}, new int[]{4, 6}, new int[]{5, 6}});
+		
+		s.drawTileImage(2, 2, t);
+		s.drawTileImage(4, 2, t, true, false);
+		s.drawTileImage(2, 4, t, false, true);
+		s.drawTileImage(4, 4, t, true, true);
+		
 		
 		//s.drawTileset(false);
 		

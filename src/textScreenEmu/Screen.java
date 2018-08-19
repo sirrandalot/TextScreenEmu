@@ -456,6 +456,60 @@ public class Screen extends JPanel{
 	
 	
 	/**
+	 * Draws a TileImage starting at the specified x and y positions on the screen.
+	 * @param x The starting x position.
+	 * @param y The starting y position.
+	 * @param t The TileImage to draw.
+	 */
+	public void drawTileImage(int x, int y, TileImage t){
+		drawTileImage(x, y, t, false, false);
+	}
+	
+	
+	/**
+	 * Draws a TileImage (flipped either horizontally, vertically or both)
+	 * at the specified x and y positions on the screen.
+	 * @param x The starting x position.
+	 * @param y The starting y position.
+	 * @param t The TileImage to draw.
+	 * @param flipX Whether or not to flip the image horizontally.
+	 * @param flipY Whether or not to flip the image vertically.
+	 */
+	public void drawTileImage(int x, int y, TileImage t, boolean flipX, boolean flipY){
+		
+		int dx = 1;
+		int sx = 0;
+		int ex = t.imageWidth;
+		if(flipX){
+			dx = -1;
+			sx = t.imageWidth-1;
+			ex = -1;
+		}
+		
+		int dy = 1;
+		int sy = 0;
+		int ey = t.imageHeight;
+		if(flipY){
+			dy = -1;
+			sy = t.imageHeight-1;
+			ey = -1;
+		}
+		
+		int c = 0;
+		
+		for(int j = sy; j != ey; j += dy){
+			for(int i = sx; i != ex; i += dx){
+				if(t.tileValues[c] != -1){
+					setColours(t.colourValues[c][0], t.colourValues[c][1]);
+					drawTile(x + i, y + j, t.tileValues[c], flipX, flipY);
+				}
+				c++;
+			}
+		}
+	}
+	
+	
+	/**
 	 * Draws the current Tileset.
 	 * @param flat If true, wraps at screen width, otherwise wraps at 16.
 	 */
